@@ -45,4 +45,4 @@ To help with communication we've set each posse up with:
 When possible posse members like to meet in person, but many of our **most involved** mentors participate completely remotely over Google Hangouts and GitHub.
 
 If you're interested in joining us as a mentor we'd love to have you. Shoot
-an email to [contact@turing.io](mentoring@turing.io) and tell us a bit about yourself!
+an email to <contact@turing.io> and tell us a bit about yourself!
