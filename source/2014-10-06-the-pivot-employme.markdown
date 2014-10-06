@@ -1,6 +1,6 @@
 ---
 title: The Pivot - EmployMe
-date: 2014-10-13 10:10 UTC
+date: 2014-10-06 10:10 UTC
 tags:
 author: Corey Davis, Alan Smith, Robert Gu, Horacio Chavez
 layout: post
