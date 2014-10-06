@@ -6,7 +6,7 @@ author: Corey Davis, Alan Smith, Robert Gu, Horacio Chavez
 layout: post
 ---
 
-# Student Report: EmployMe from The Pivot
+## Student Report: EmployMe from The Pivot
 
 We're starting a new experiment on the Turing blog: students retrospecting and
 explaining some of the projects they complete. The first posts will be from our
@@ -22,7 +22,9 @@ Below is the report from Corey Davis, Alan Smith, Robert Gu, and Horacio Chavez:
 
 ## EmployMe: Making Muffins Out of Car Parts
 
+<div style='margin: 0px auto; text-align: center'>
 <iframe src="//player.vimeo.com/video/108136753" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/108136753">The Pivot - EmployMe</a> from <a href="http://vimeo.com/turing">Turing School</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+</div>
 
 Our latest project for [Turing](http://turing.io) involves pivoting a legacy codebase to a multi-tenant app. Specifically we are taking a previous single-tenant restaurant app and turning it into a multi-tenant employment app (think miniature Monster.com.) Working with legacy code comes with a lot of challenges. The obvious problem was the architecture and design of our codebase was directed to meet the needs of a single restaurant, not an employment site.
 
