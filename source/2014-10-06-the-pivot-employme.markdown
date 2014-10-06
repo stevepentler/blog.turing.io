@@ -6,8 +6,6 @@ author: Corey Davis, Alan Smith, Robert Gu, Horacio Chavez
 layout: post
 ---
 
-## Student Report: EmployMe from The Pivot
-
 We're starting a new experiment on the Turing blog: students retrospecting and
 explaining some of the projects they complete. The first posts will be from our
 1406 cohort reflecting on their The Pivot projects.
