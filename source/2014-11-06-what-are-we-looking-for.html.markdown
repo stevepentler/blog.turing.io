@@ -1,5 +1,5 @@
 ---
-title: What Are We Looking For? A Pastry Chef.
+title: What Are We Looking For? A Pastry Chef
 date: 2014-11-06 22:37 UTC
 tags:
 author: Jorge Téllez
