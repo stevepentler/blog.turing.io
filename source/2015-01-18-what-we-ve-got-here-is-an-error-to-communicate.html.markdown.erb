@@ -1,0 +1,73 @@
+---
+title: What We've Got Here Is An Error To Communicate
+date: 2015-01-18 12:44 UTC
+tags:
+author: Josh Cheek
+layout: post
+---
+
+What if error messages were compelling to read?
+-----------------------------------------------
+
+[Ben Orenstein](https://twitter.com/r00k) joined us this month to experience the joys
+and terrors of teaching.  One of the things [he observed](https://twitter.com/r00k/status/556608103928856576)
+is that newbies tend to skim error messages rather than slowing down to read them
+and understanding the information they are trying to communicate.
+I realized that I do this a lot, even still.
+I've gotten very good at glancing at the structure
+of the text on the screen and knowing what the error is and where to look
+for the information I need to fix it.
+
+<%= image_tag 'article_images/error_to_communicate/divining_info.png', class: 'wide-screenshot' %>
+
+But sometimes it's still hard to find that one piece of info I need from it.
+Which means I sometimes just jump to where I expect it to be in my code,
+figuring if I look at it for a moment, I'll see it and fix it.
+This is usually true, but if I'm not particularly on that day,
+I can utterly misunderstand the problem.
+
+For me, this is a conjunction of bad UI and a brain that operates in a certain manner.
+I'd love a more patient brain that didn't feel a little overwhelmed every time it
+looks at a backtrace, but locating needles in haystacks is a skill unto itself.
+As such, stopping to figure out what the error is saying may yank me out of context.
+This is probably why my brain has an aversion to it, it's an interruption.
+
+It doesn't need to be this way, it simply is.
+We can change it. We aren't _obligated_ to have mediocre error messages.
+So I spent some time exploring what that might look like.
+
+
+A hypothetical answer to the question
+-------------------------------------
+
+Here we see what it could look like to catch an error raised from
+invoking a method with the wrong number of arguments.
+It uses colour, location, and size to help you parse the data for the information you need.
+It tries to direct your attention to what it thinks will be most useful, while still providing context.
+The code samples are annotated with the information that pertains to them from the error message.
+
+<%= image_tag 'article_images/error_to_communicate/proof_of_concept.png', class: 'tall-screenshot' %>
+
+The code is hosted [here](https://github.com/JoshCheek/what-we-ve-got-here-is-an-error-to-communicate/blob/initial-proof-of-concept/display_errors.rb).
+
+This is a proof of concept
+--------------------------
+
+This isn't fit for real-world use.
+If there is resonance in the community, I'll probably try to make it a real gem.
+I'll have some time to do that during my next braeak in late march 2015,
+so feedback is welcome.
+
+Inspirations:
+-------------
+
+I think initially this was inspired by Sarah Gray's talk at Software Craftsmanship North America:
+[Visualizing Enumerable: Own Abstract Concepts Through Physicalization](https://vimeo.com/54860297).
+I just watched it again, it's a great talk!
+
+Got to thinking about it again with Kerri Miller while conversing at DCamp
+Then, while at Ruby Conf, she created [chatty_exceptions](https://github.com/kerrizor/chatty_exceptions)
+which is in this same domain.
+
+Charlie Sommerville's [better_errors](https://rubygems.org/gems/better_errors)
+gem gives you a nice interface like this for Rails.
