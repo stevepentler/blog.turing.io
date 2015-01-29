@@ -1,6 +1,6 @@
 ---
 title: Seven Months Later
-date: 2015-01-29 17:00 UTC
+date: 2015-01-29 15:00 UTC
 tags:
 author: Sara Simon
 layout: post
