@@ -1,3 +1,4 @@
+$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
 require "./source/helpers/view_helpers"
 require "./source/helpers/comment_helpers"
 helpers ViewHelpers
@@ -44,6 +45,19 @@ activate :blog
 # Methods defined in the helpers block are available in templates
 # helpers do
 # end
+
+# Syntax Highlighting
+set :markdown_engine, :redcarpet
+set :markdown, fenced_code_blocks: true
+
+activate :syntax, wrap: true
+  # option :css_class,     'highlight', 'Class name applied to the syntax-highlighted output.'
+  # option :line_numbers,  false,       'Generate line numbers.'
+  # option :wrap,          true,        'Wrap the highlighted content in a container (<pre> or <div>, depending on whether :line_numbers is on).'
+  # option :lexer_options, {},          'Options for the Rouge lexers.'
+
+require 'jsl/shell_lexer'
+
 
 activate :directory_indexes
 set :build_dir, "tmp"
