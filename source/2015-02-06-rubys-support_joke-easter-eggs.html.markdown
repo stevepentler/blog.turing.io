@@ -32,7 +32,7 @@ $ cd ruby-2.2.0/
 
 ## Turn SUPPORT_JOKE on
 
-If we take a look, we'll see it comes up in various places
+If we take a look, we'll see `SUPPORT_JOKE` comes up in various places
 (<a href="#whats_ag_footnote" name="whats_ag_link">What's ag?</a>)
 
 ```sh
@@ -248,16 +248,17 @@ and the [iseq.h match](https://github.com/ruby/ruby/blob/3d775f1c6fe9f558be8c9d4
 
 Now, I know a lot of y'all think `if` statements and `while` statements are these
 underlying atoms that every programming language needs, and couldn't do without.
-You probably even think they're pretty low-level, what with the Corey Haines
-of the world saying things like "an if statement is a failure to pattern match"
-[Reference](http://legit-quotes.com/Corey%20Haines,%20as%20envisioned%20in%20the%20brain%20of%20Josh%20Cheek,%20since%20IDK%20how%20to%20request%20archive%20of%20his%20tweets%20to%20quote%20mine/an%20if%20statement%20is%20a%20failure%20to%20pattern%20match).
+You probably even think they're pretty low-level, what with the Corey Haineses
+(YES THAT coreyhaines) of the world saying things like
+["an if statement is a failure to pattern match"](http://legit-quotes.com/Corey%20Haines,%20as%20envisioned%20in%20the%20brain%20of%20Josh%20Cheek,%20since%20IDK%20how%20to%20request%20archive%20of%20his%20tweets%20to%20quote%20mine/an%20if%20statement%20is%20a%20failure%20to%20pattern%20match)
+(Side note: [shameless plug](https://rubygems.org/gems/overloaded_methods)).
 But back in the day, people didn't even have `if` statements! They had something way better:
 **gotos**.
 
 Gotos are better than if statements, because you can make if statements out of them.
-Sort of like how yarn is better than a sweater, because you can make a sweater out of it.
-Or a hat, or a [scarf](https://s3.amazonaws.com/josh.cheek/images/scratch/knitting-scarf.png),
-or a [square](http://images4.ravelry.com/uploads/joshuacheek/141473428/knitting-square.jpg).
+Sort of like how yarn is better than a sweater, because you can make a sweater out of it,
+or a hat, or a [scarf](https://s3.amazonaws.com/josh.cheek/images/scratch/knitting-scarf.png),
+or a ["square"](http://images4.ravelry.com/uploads/joshuacheek/141473428/knitting-square.jpg).
 Well... to be fair, Ruby doesn't give you the corresponding jump commands, but still...
 
 Gotos were so awesome that no one wanted to lose them.
@@ -267,18 +268,17 @@ who wanted to spoil everyone's good time: Edsger Dijkstra.
 Now, theoretically Dijkstra was a physicist.
 But then he made a shortest path algorithm for weighted graphs,
 which of course nobody gives a shit about -- except for academics, which of course nobody gives a shit about.
-So by the transitive property of not giving a shit, you'd think we'd still have gotos.
+So by the transitive property of not giving a shit, you'd think no one would have given a shit.
 But, through the underhanded tactics of [rhetorical warfare](http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html),
-he successfully deposed the king of control flow.
+he successfully deposed the beloved king of control flow.
 
-He renamed "if statements" to "structured programming", which is a fancy way to say that
-["gotos are replaced by indentation"](http://www.fang.ece.ufl.edu/reject.html).
+He renamed "if statements" to "structured programming",
+a fancy way to say that ["gotos are replaced by indentation"](http://www.fang.ece.ufl.edu/reject.html).
 The one upside is that if anyone tells you your code
 has no structure, you can "well actually" them.
 Thanks, Dijkstra, the world needed that.
 
-Alright, enough [true facts](https://www.youtube.com/playlist?list=PLOHbM4GGWADc5bZgvbivvttAuWGow6h05)
-about the goto, lets make a while loop!
+Alright, enough true facts about the goto, lets make a while loop!
 
 ```ruby
 count = 0  # => 0
@@ -298,10 +298,10 @@ __label__ :condition_met
 # >> {:count=>5}
 ```
 
-Brilliant! Ignore the segfaults if you get them, that means you're close to the metal.
+Brilliant! Ignore the segfaults.
 
 Now lets address a persistent problem in Ruby. How do we get out of deeply nested loops?
-Check this code out. Not a flag. Not a method. Not a care in the world!
+Check this code out: Not a flag. Not a method. Not a care in the world!
 
 ```ruby
 a = 0
@@ -324,14 +324,15 @@ p a: a, b: b, c: c
 ```
 
 Normally you'd have to wrap that code in a method and use a `return` which is really
-just a nerfed goto. Let me ask you this: Why is it `return` instead of `returnto`?
+just a nerfed goto. Notice that you can only return to one place!
+Why is it `return` instead of `returnto`?
 Ehh? Ehh? You're programming with half a toolbox, my friends. Where's your `setlongjump`?
 Where's your Duff's Device?
 
-Want your code to be readable? What's more readable than a book?
+**STOP!** Do you want your code to be readable? Well, what's more readable than a book?
 Books know about the power of gotos, that's how you [choose your own adventure](http://weirdcanada.com/tag/choose-your-own-adventure/).
 
-Now, all those underscores around the label and goto are an eyesore, though, lets remove them:
+Lets do something about all those underscores around the label and goto:
 
 ```sh
 $ sed -i "" -E 's/__(goto|label)__/\\1/' compile.c &&
@@ -340,7 +341,7 @@ $ sed -i "" -E 's/__(goto|label)__/\\1/' compile.c &&
   echo 'success!'
 ```
 
-Which allows us to write a program as beautiful as it is practical: a number guessing game.
+This allows us to write a program as beautiful as it is practical: a number guessing game.
 
 ```ruby
 secret = rand 100
@@ -366,6 +367,7 @@ label :incorrect
 label :finished
 ```
 
+I love it. I want it in all my programs.
 
 ## Oh! The places you'll goto!
 
@@ -377,7 +379,7 @@ And sure some features are just for the laughs,<br />
 provided on the compiling comedian's behalf.
 
 But you, dear reader, with your attention that spans<br />
-apparently infinite volumes, since this blog first began,<br />
+approximately infinite volumes, since this blog first began,<br />
 think what you could achieve if this was what ran<br />
 on production servers in the cloud or on land.
 <a href="#no_warranty_footnote" name="no_warranty_link"><sup>[disclaimer]</sup></a>
@@ -386,7 +388,7 @@ With your instruction pointer, pointing at places anew.<br />
 And your locations all labeled and ready to ensue.<br />
 No need for a `break`, a `retry`, a `redo`<br />
 Will you be control flowed? No! That won't happen to you!<br />
-Just think of it. Oh! The places you'll goto!
+Just think of it! Oh! The places you'll goto!
 </em>
 
 ## Footnotes
