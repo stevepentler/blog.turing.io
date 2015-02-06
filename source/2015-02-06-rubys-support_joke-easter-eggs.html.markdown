@@ -178,7 +178,7 @@ We can see that right next to `bitblt`, there is a
 
 ```sh
 $ bin/ruby -e 'puts the_answer_to_life_the_universe_and_everything'
-42
+# >> 42
 ```
 
 Hmm... yeah, I don't get it.
@@ -365,51 +365,6 @@ label :incorrect
 
 label :finished
 ```
-
-Check this one. I call it "the conductor". Each thing you could want to do gets a label.
-And instead of returning to the caller, they all return to the conductor. The conductor
-pops the next location off the stack and directs program flow over to there.
-Brilliant! I want to use it in all my projects.
-
-```ruby
-args    = [rand(100), -1]
-control = [:finished, :prompt_until_correct]
-goto :conductor
-
-label :conductor
-  goto control.pop
-
-label :prompt_guess
-  args.push 'Enter your guess: '
-  control.push :print
-  goto :conductor
-
-label :get_guess
-  args.push gets.chomp.to_i
-  goto :conductor
-
-label :print_result
-  args[-2] < args[-1] ? args.push('Your guess is too high') :
-  args[-2] > args[-1] ? args.push('Your guess is too low')  :
-                        args.push('You got it!')
-  control.push :print
-  goto :conductor
-
-label :prompt_until_correct
-  args[-2] != args.pop and
-    control.push :prompt_until_correct, :print_result, :get_guess, :prompt_guess
-  goto :conductor
-
-label :print
-  print args.pop
-  goto :conductor
-
-label :finished
-```
-
-Sadly, "the conductor" doesn't actually work, since both `goto` and `label` expect
-their argument to be a literal symbol. I probably should have stopped to run it
-partway through writing it, so I guess the joke's on me.
 
 
 ## Oh! The places you'll goto!
