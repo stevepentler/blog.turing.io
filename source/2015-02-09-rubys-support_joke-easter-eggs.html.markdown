@@ -1,6 +1,6 @@
 ---
 title: Ruby's SUPPORT_JOKE easter eggs!
-date: 2015-02-06 01:29 UTC
+date: 2015-02-09 01:29 UTC
 tags:
 author: Josh Cheek
 layout: post
