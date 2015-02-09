@@ -70,7 +70,7 @@ activate :syntax,
 
 # half taken from here http://blog.leonardfactory.com/2013/05/05/code-fenced-blocks-pygments-and-line-numbers-with-jekyll/
 # half taken from here https://github.com/middleman/middleman-syntax/blob/d1a49ee30f9a2ef939a00b78f3b38cca6c5bcc0c/lib/middleman-syntax/extension.rb#L20
-class ::Middleman::Renderers::MiddlemanRedcarpetHTML
+class ::Middleman::Renderers::MiddlemanRedcarpetHTML < ::Redcarpet::Render::HTML
   def codespan(code)
     %'<code class="inline-code">#{code}</code>' # Inline code custom class
   end
