@@ -1,0 +1,43 @@
+---
+title: iTerm2 - High Contrast turns foreground colours white
+date: 2015-02-11 16:50 UTC
+tags:
+author: Josh Cheek
+layout: post
+---
+
+Whenever new students arrive with their own laptops,
+I get to discover unexpected and impressive ways
+for a Mac to not work right. So, this week has
+been full of figuring out and fixing Ruby installs, homebrew,
+bash configuration and so forth. *\#NoDevEnvLeftBehind*
+
+Yesterday, I was figuring out why [Seeing Is Believing](https://github.com/JoshCheek/seeing_is_believing/blob/bd8083f781d53e4b85ea7d82bfa380b1ea41c3e4/Readme.md#seeing-is-believing)
+wasn't working on a student's vim, and I noticed the syntax highlighting was off.
+No matter what I tried, I couldn't get it to turn back on.
+Eventually, I debugged it to the point where I knew it couldn't be vim.
+I'd physically moved / read all the rc files that were being loaded, ran MacVim's terminal
+binary to make sure it wasn't a compilation issue. Nothing worked.
+
+<aside>
+Fun fact: While writing this, a student brought me a Monster energy drink
+as an expression of appreciation for fixing their computer!
+</aside>
+
+BUT! The prompt had colour in it... So I tried printing a few different colours myself.
+No dice... even though it was right underneat the coloured prompt!
+So, I channeled me some [pooh bear](https://www.youtube.com/watch?v=5R8XHrfJkeg)
+and realized the difference was the colour that showed up was background,
+and the colour that didn't was foreground.
+With this knowledge in mind, I systematically
+compared their iTerm settings to mine,
+until I discovered the issue:
+
+<%= image_tag 'article_images/iterm2-contrast-fgcolor.gif', class: 'wide-screenshot' %>
+
+Apparently, iTerm2 provides a `Minimum contrast` slider in `Settings -> Profiles -> Colors`
+I had mine turned all the way down, but this student's was turned all the way up.
+
+So, bumped theirs up, fixed up their vim theme so it [looked good](https://github.com/nanotech/jellybeans.vim/blob/0761708c890becd3e027551068e0ae272da003e0/README.markdown#screenshots)
+cleaned up the mess I'd made of their Vundle install, and finally,
+got Seeing Is Believing working.
