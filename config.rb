@@ -1,6 +1,9 @@
-$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
-require "./source/helpers/view_helpers"
-require "./source/helpers/comment_helpers"
+# there is a root_path in this object (https://github.com/middleman/middleman/blob/ad05b33cf6c24d1c48aa9e0895d31b481b7bcf17/middleman-core/lib/middleman-core/application.rb#L57-68)
+# but it uses relative paths, so I'm not very confident in it, and going to do this instead.
+root = Pathname.new File.expand_path File.dirname __FILE__
+$LOAD_PATH.unshift root + 'lib'
+require root + "source/helpers/view_helpers"
+require root + "source/helpers/comment_helpers"
 helpers ViewHelpers
 helpers CommentHelpers
 
