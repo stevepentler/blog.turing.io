@@ -1,0 +1,486 @@
+---
+title: "Science: the big shebang"
+date: 2015-02-21 12:17 UTC
+tags:
+author: Josh Cheek
+layout: post
+---
+
+tl; dr
+------
+
+You basically can't do anything you want to do with a shebang.
+Args work like this: Given `some-file`, with a shebang
+`#/some/program arg1`, When you type `some-file arg2`,
+it will invoke `/some/program`, and its `argv` will be
+`["/some/program", "arg1", "some-file", "arg2"]`
+
+
+What is a shebang?
+------------------
+
+A shebang is how an executable Ruby program on \*nix tells the operating system how to wire it up.
+It is the first line in an executable file, beginning with `#!/path/to/program`.
+
+
+Why do we use shebangs?
+-----------------------
+
+Back in the day, all programs were machine code that was directly executed by the computer.
+"Ones and Zeros", which is why programs on \*nix systems are usually called "binaries"
+instead of "executables", and is why executables in gems are stuck in the
+["bin" directory](http://guides.rubygems.org/patterns/).
+
+<aside>
+This blog was composed with
+<a href="https://www.youtube.com/watch?v=5ihtX86JzmA">She Bangs</a>
+on repeat. I'm channeling the octopus man at 0:15, y'all.
+</aside>
+
+In interpreted languages, like Ruby and JavaScript, we don't compile to machine code,
+instead there is a program, like `ruby` or [`"node"`](<%= image_path 'article_images/node-lol.png' %>)
+which reads our code and performs actions based on that.
+
+For example, you must write `ruby file.rb`, you can't just say `./file.rb`,
+because you computer's hardware does not know how to execute Ruby code.
+That's what Shebangs are for, they tell the operating system how to run the file.
+
+
+
+A simple example
+----------------
+
+Lets say you have a ruby interpreter at `/usr/bin/ruby` (eg if you're on OSX).
+You could then write this program:
+
+```ruby
+#!/usr/bin/ruby
+puts "hello, world!"
+```
+
+We can run it like this:
+
+```sh
+$ chmod +x program # make it executable
+$ ./program
+# >> hello, world!
+```
+
+Shebangs can take args
+----------------------
+
+We can pass arguments to the program.
+For example, we could turn on simple flag parsing the `-s`
+
+```sh
+$ cat ./program
+# >> #!/usr/bin/ruby -s
+# >> puts "she: #{$she.inspect}"
+
+$ ./program -she=bangs
+# >> she: "bangs"
+```
+
+Whitespace before the program name does not matter
+--------------------------------------------------
+
+```sh
+$ cat program1 program2
+# >> #!/usr/bin/ruby -v
+# >> #!    /usr/bin/ruby -v
+
+$ ./program1 && ./program2
+# >> ruby 2.0.0p451 (2014-02-24 revision 45167) [universal.x86_64-darwin13]
+# >> ruby 2.0.0p451 (2014-02-24 revision 45167) [universal.x86_64-darwin13]
+```
+
+
+Shebangs cannot rely on the PATH
+--------------------------------
+
+So here's a stupid thing. Your shebang cannot use the `$PATH`.
+
+```sh
+$ cat program
+# >> #! ruby
+# >> puts "from program"
+
+$ ./program
+# >> bash: ./program: ruby: bad interpreter: No such file or directory
+```
+
+But that's actually a problem, because almost all of use use version managers.
+So our Ruby won't be located at `/usr/bin/ruby`. For example, mine right now:
+
+```sh
+$ which ruby
+# >> /Users/josh/.rubies/ruby-2.1.1/bin/ruby
+```
+
+So how do we find our Ruby based on the PATH, given that we must hard-code
+it into the file and it changes all the time, and will be in different places
+on every person's computer?
+
+To deal with this, we have to use a program that is in the same location
+on everyone's computers, and can then turn around and find our Ruby based
+on the `$PATH`. That program is `env`, which is why basically every ruby
+binary you see will begin with `#!/usr/bin/env ruby`
+
+```sh
+$ cat program
+# >> #!/usr/bin/env ruby
+# >> puts "This program executed with: #{RbConfig.ruby}"
+
+$ ./program
+# >> This program executed with: /Users/josh/.rubies/ruby-2.1.1/bin/ruby
+```
+
+What's especially frustrating is that whatever method they use to dispatch
+shebangs, there are C functions that do the same thing, but are `PATH` aware
+e.g. `man execv | col -b | ruby -ne 'print if /SYN/.../DESC/'`
+
+Shebangs can be relative
+------------------------
+
+While the above useful feature is missing,
+it is compensated by the existence of a useless feature!
+
+```sh
+$ ln -s /usr/bin/ruby "$PWD"/mah_ruby
+
+$ ls -l | grep ruby
+# >> lrwxr-xr-x   1 josh  staff    13 Feb 21 06:35 mah_ruby -> /usr/bin/ruby
+
+$ cat program
+# >> #!./mah_ruby
+# >> puts "This program executed with: #{RbConfig.ruby}"
+
+$ ./program
+# >> This program executed with: /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby
+```
+
+Interestingly, my `/usr/bin/ruby` appears to be a link to
+some other Ruby, provided by OSX.
+
+argv[0] is the path to the binary
+---------------------------------
+
+This isn't a shebang thing, but is necessary to understand, for what we get into next.
+We can't see this from Ruby, because Ruby processes the command-line arguments before
+it evaluates our code. So we're going to go down to C to see this one.
+
+```sh
+$ cat show_those_args.c
+# >> #include <stdio.h>
+# >>
+# >> int main(int argc, char *argv[]) {
+# >>   for(int i=0; i<argc; i++)
+# >>     printf("ARGV[%d] = %s\n", i, argv[i]);
+# >> }
+
+$ gcc ./show_those_args.c -o show_those_args
+
+$ ./show_those_args a b c
+# >> ARGV[0] = ./show_those_args
+# >> ARGV[1] = a
+# >> ARGV[2] = b
+# >> ARGV[3] = c
+```
+
+The shebanged program must be binary
+------------------------------------
+
+Apparently the program you specify in the shebang must be binary.
+This caught me really off-guard.
+To the point that I didn't actually believe it,
+and wrote the C program in the preceeding section so I could try this experiment:
+
+```sh
+$ cat program1
+# >> #!./show_those_args
+
+$ ./program1
+# >> ARGV[0] = ./show_those_args
+# >> ARGV[1] = ./program1
+
+$ cat program2
+# >> #!./program1
+
+$ ./program2
+# >> Failed to execute process './program2'. Reason:
+# >> exec: Exec format error
+# >> The file './program2' is marked as an executable but could not be run by the operating system.
+```
+
+...unless you're in bash
+------------------------
+
+So that error you saw above is what you see if you're in the shell I use, [fish](http://fishshell.com/)
+(I translate command-line examples to bash since that's what most people expect).
+If you're in bash, and this is brilliant,
+it doesn't tell you that it couldn't execute the program,
+it just executes it with bash instead.
+So, of course, if you wrote ruby in there, you would get bash errors,
+hope you had your coffee, b/c you're going to get errors like
+`line 2: puts: command not found`.
+
+Which bash does it use? How about whatever you used to start bash,
+regardless of how absurd that would be.
+
+```sh
+$ cat program2
+# >> #!./program1
+# >> ps | grep $$ | grep -v grep # if there's a better way to do this, pls tell me
+
+$ bash -c ./program2
+# >> 43851 ttys009    0:00.00 bash -c ./program2
+
+$ echo ./program2 | bash -l
+# >> 43885 ttys009    0:00.00 bash -l
+
+# At some point, skepticism dictates we verify it's not like sourcing it or something
+$ bash -c 'echo parent pid: $$ && ./program2'
+# >> parent pid: 43861
+# >> 43862 ttys009    0:00.00 bash -c echo parent pid: $$ && ./program2
+
+# Okay, but come on, that's **TOO** ridiculous
+# It's got to be lying, it would wind up recursively invoking itself if that was true
+# lets put it into a situation where it will blow up if it uses those args
+#
+# verify the -r (restricted) option will blow up if we change the PATH
+$ bash -r -c 'PATH=zomg'
+# >> bash: PATH: readonly variable
+
+# Can program2 modify the path?
+$ echo -n PATH=zomg\n'echo $PATH' >> program2
+
+# Yes, it can! ...wait, what does that mean?!
+$ PATH="$PWD:$PATH" bash -r -c program2 && echo $?
+# >> 44782 ttys002    0:00.00 bash -r -c program2
+# >> zomg
+# >> 0
+```
+
+So.... idk wtf Bash is doing, but enough bash bashing,
+we were shebanging our heads against the wall.
+
+The shebang program receives the filename after its args
+--------------------------------------------------------
+
+So if we have a shebang that calls a program and passes some arg,
+does the filename come before or after the arg? After.
+
+```sh
+$ cat ./program
+# >> #!./show_those_args SHEBANG-ARG
+
+$ ./program
+# >> ARGV[0] = ./show_those_args
+# >> ARGV[1] = SHEBANG-ARG
+# >> ARGV[2] = ./program
+```
+
+Command line args come last
+---------------------------
+
+And what if we then pass some commandline args?
+They come last.
+
+```sh
+$ cat ./program
+# >> #!./show_those_args SHEBANG-ARG
+
+$ ./program COMMANDLINE-ARG
+# >> ARGV[0] = ./show_those_args
+# >> ARGV[1] = SHEBANG-ARG
+# >> ARGV[2] = ./program
+# >> ARGV[3] = COMMANDLINE-ARG
+```
+
+Hmmmmm.... That means that the program we invoke
+(in this case, `show_those_args`)
+can't know the meaning of any of its args.
+Is that a problem?
+
+You can't make a "forward" program
+----------------------------------
+
+So lets say we have an alias `be="bundle exec"` and we want
+to make that into a program so we can run it from our editor
+and don't have to rewrite it for every shell.
+Currently, we'd have to do something like this
+
+```sh
+#!/bin/sh
+bundle exec "$@"
+```
+
+But that's dumb, we're just using `sh` to call bundle,
+why do we need this extra program sitting in the middle?
+What if we tried this:
+
+```sh
+#! bundle exec
+```
+
+Won't work, because, as shown above, we can't use relative paths.
+So we'd have to do.
+
+```sh
+#!/usr/bin/env bundle exec
+```
+
+But that won't work either, because it still goes through an intermediate program,
+and if we typed `be rake`, we would hit the problem of the filename being stuck in the middle.
+
+```ruby
+# `be rake` would go to `env` as
+["/usr/bin/env", "bundle", "exec", "path/to/be", "rake"]
+
+# but it should be
+["/usr/bin/env", "bundle", "exec", "rake"]
+```
+
+We might then try to [write our own](https://github.com/JoshCheek/dotfiles/blob/89356e1840414e7375cb771ea37358a39e28603a/source/=%3e.c)
+program whose job is to do forwarding of this nature,
+but we would be stuck! We need to remove `path/to/be` from argv, but
+
+1. We don't know which arg needs to be removed, because they're not separated
+2. We still have to go through an intermediate program
+3. We would have to know where the forwarding program is on the filesystem,
+or [fallback to env](https://github.com/JoshCheek/dotfiles/blob/89356e1840414e7375cb771ea37358a39e28603a/source/=%3e.c#L7-8)
+   again
+
+We can't analyze the args to find out which one to remove,
+because the target program might also be a forwarding program,
+thus it may or may not be the first filename whose first line is the shebang to `argv[0]`.
+And we might pass another file with this property from the invocation,
+so it may or may not be the last arg.
+Thus we can only know what is correct by knowing how the arg is processed by the program.
+
+So to make it work, we would have to pass an extra arg to tell it where the filename is (an index)
+At which point, even the convenience of such a program would be diminished,
+removing all the reasons we want to do this.
+
+
+Quoting is not a thing
+----------------------
+
+So spaces delimit tokens in most languages, and especially text oriented languages like shells.
+The way we get around this is with "quoting", which just says "hey, that space isn't a delimiter,
+it actually is a space".
+
+```sh
+$ ruby -e 'ARGV.each { |a| p a }'  a b  'c d'  "e f"  g\ h
+# >> "a"
+# >> "b"
+# >> "c d"
+# >> "e f"
+# >> "g h"
+
+$ cat program
+#!/usr/bin/ruby -e ARGV.each{|a|p(a)}  a b  'c d'  "e f"  g\ h
+
+$ ./program
+"a"
+"b"
+"'c"
+"d'"
+"\"e"
+"f\""
+"g\\"
+"h"
+"./program"
+```
+
+Notice the arg to -e has to omit all spaces,
+and is atypically not wrapped in quotes,
+beacuse they would be seen as literal quotes.
+
+Environment variables are not a thing
+-------------------------------------
+
+Shells will allow you to access environment variables with `$var` syntax.
+But yeah, shebangs don't know nothin about that.
+
+```sh
+$ ruby -e 'p(ARGV)' $HOME
+# >> ["/Users/josh"]
+
+$ cat program
+# >> #!/usr/bin/ruby -e p(ARGV) $HOME
+
+$ ./program
+# >> ["$HOME", "./program"]
+```
+
+There is no way to specify the home directory
+---------------------------------------------
+
+Say I had a ruby at "/Users/josh/bin/home_ruby".
+But I'm on several different systems, and my username isn't always `josh`,
+and home directories aren't always stored in "/Users".
+So even if you set up your environment the same within your home dir,
+you can't put that into a shebang.
+
+```sh
+$ ln -s /usr/bin/ruby "$HOME/bin/home_ruby"
+$ ~/bin/home_ruby -v
+# >> ruby 2.0.0p451 (2014-02-24 revision 45167) [universal.x86_64-darwin13]
+
+$ cat program
+# >> #! ~/bin/home_ruby -v
+
+$ ./program
+# >> Failed to execute process './program'. Reason:
+# >> The file './program' does not exist or could not be executed.
+```
+
+And, since env vars and quotes don't work, we can't do this one for multiple reasons:
+
+```ruby
+#! "$HOME"/bin/ruby
+```
+
+Demand the impossible
+---------------------
+
+Here is what I want to be different about shebangs:
+
+* They should understand the PATH.
+* They should understand quoting
+* They should understand environment variables.
+* It would be better to put the filename first so it was in a known location.
+* But really, I should be able to specify where it goes, or even omit it if appropriate for my use case.
+
+Quixoticism
+-----------
+
+With infrastructural things like this, I should be able to hook in and modify them.
+e.g. this would all be fine if I had the ability to register a function to
+do the shebang processing.
+Then I could register it in my shell's configuration file,
+or add it to each executable's metadata,
+and address all the issues we discovered in this exploration.
+
+This is sort of a general truth that I wish were more widely considered.
+I should be able to make shebangs work this way.
+I should be able to write my own JavaScript function for `Slack` which receives
+the channel and mention and returns whether or not to notify me.
+I should be able to write some JavaScript or C or Java to decide how my browser's URL bar
+deals with autosuggestions and tab completion.
+I should be able to theme my terminal with a stylesheet based on the semantics of the output.
+
+If developers spent less effort on making a thing better,
+and more effort on making it so its users could make it better,
+then they wouldn't be the bottleneck.
+We would be more inspired by the possibilities and less
+[acclimated to changing our behaviour around the quirks and failures of our tools](<%= image_path 'article_images/torvalds-irony.png' %>)
+to address our helplessness.
+
+This is why [emacs is great](http://martinfowler.com/bliki/InternalReprogrammability.html),
+it's why people are interested in [Breach](http://breach.cc/),
+it's the power of lisps and Ruby.
+
+Unshroud your data structures, provide me hooks into your processes
+and state transitions. I want a better world.
