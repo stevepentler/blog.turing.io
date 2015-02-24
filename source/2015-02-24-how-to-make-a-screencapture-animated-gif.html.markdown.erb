@@ -1,6 +1,6 @@
 ---
 title: How to make a screencapture (animated gif)
-date: 2015-02-19 16:26 UTC
+date: 2015-02-24 16:26 UTC
 tags:
 author: Josh Cheek
 layout: post
@@ -72,7 +72,7 @@ Downside is it hates local colour tables, and I legit spent hours failing to get
 it to change the duration of a frame I'd edited.
 
 This is the command I ran to get it to remove local colour tables in the above screencapture,
-and reduce the filesize by 57% using.
+and reduce the filesize by 57%. Probably worth doing whether you're editing the gif or not.
 
 ```sh
 $ gifsicle --batch a.gif -O3 --colors 256
