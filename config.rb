@@ -81,7 +81,7 @@ end
 
 
 activate :directory_indexes
-set :build_dir, "tmp"
+set :build_dir, root+"tmp"
 
 # Define assets directories
 set :css_dir,    'stylesheets'
