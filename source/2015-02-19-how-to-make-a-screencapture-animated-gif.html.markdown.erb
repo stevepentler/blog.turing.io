@@ -1,0 +1,79 @@
+---
+title: How to make a screencapture (animated gif)
+date: 2015-02-19 16:26 UTC
+tags:
+author: Josh Cheek
+layout: post
+---
+
+[Atom](https://atom.io/)'s discuss page uses animated gifs
+to illustrate what the user is trying to write in words.
+It seems to work well, and I've become a fan. So, how do you,
+reader, make your own.
+
+The primary tool you need is called LICEcap, and you can get it at
+[http://www.cockos.com/licecap/](http://www.cockos.com/licecap/).
+
+Once you have it, to make a recording:
+
+<%= image_tag 'article_images/how-to-screencapture.gif', class: 'wide-screenshot' %>
+
+## Run it
+
+Easy way is to do `open /Applications/LICEcap.app` from the terminal,
+but you can also use an application launcher like spotlight or Alfred.
+
+## Start it
+
+* Position it over the thing you want to show.
+* Click "record".
+* Choose a filename and location.
+* Click "save"
+
+## Note the delay
+
+In the lower left, you'll see a 3 second countdown.
+Use this time to select your window.
+
+## Record it
+
+Perform the thing you want to show. Click stop when finished.
+
+## Open it
+
+There's a few ways to do this. I usually open it with my browser.
+If you're not using Opera, just switch `Opera.app` with `Firefox.app`
+or whichever you use (props if you get Lynx to display them).
+
+```sh
+# I think `open` is a mac command, so your computer might work differently
+$ open -a Opera.app ~/Desktop/example-screencapture.gif
+```
+
+You can also open it in Finder (also a Mac only thing),
+and then press the spacebar.
+
+```sh
+$ open -R ~/Desktop/how-to-screencapture.gif
+```
+
+## Going further!
+
+So, Mac's Preview.app is pretty epic,
+you can actually edit individual frames with it,
+look in the upper right for an edit button (pencil in a square).
+
+<%= image_tag 'article_images/edit-screencapture.png', class: 'wide-screenshot' %>
+
+The downside is that it will save with a much larger filesize.
+But, you can use [Gifsicle](http://www.lcdf.org/gifsicle/) to fix that.
+Upside of gifsicle is it's kinda amazing for things like compression and extracting images.
+Downside is it hates local colour tables, and I legit spent hours failing to get
+it to change the duration of a frame I'd edited.
+
+This is the command I ran to get it to remove local colour tables in the above screencapture,
+and reduce the filesize by 57% using.
+
+```sh
+$ gifsicle --batch a.gif -O3 --colors 256
+```
