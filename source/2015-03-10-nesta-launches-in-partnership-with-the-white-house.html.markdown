@@ -1,5 +1,5 @@
 ---
-title: Turing School Participates in the Launch of President Obama’s TechHire Initiative and the Founding of NESTA
+title: NESTA Launches in Partnership with the White House
 date: 2015-03-10 14:47 UTC
 tags:
 layout: post
