@@ -1,5 +1,5 @@
 ---
-title: NESTA Launches in Partnership with the White House
+title: NESTA Launches in Support of the White House & TechHire
 date: 2015-03-10 14:47 UTC
 tags:
 layout: post
