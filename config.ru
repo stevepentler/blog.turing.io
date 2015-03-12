@@ -10,7 +10,8 @@ require "rack/rewrite"
 use Rack::Head
 
 REDIRECTS = {
-  "/2015/03/10/nesta-launches-in-partnership-with-the-white-house/" => "http://blog.turing.io/2015/03/10/nesta-launches/"
+  "/2015/03/10/nesta-launches-in-partnership-with-the-white-house/" => "http://blog.turing.io/2015/03/10/nesta-launches/",
+  "/2015/03/10/nesta-launches-in-partnership-with-the-white-house"  => "http://blog.turing.io/2015/03/10/nesta-launches/"
 }
 
 use Rack::Rewrite do
