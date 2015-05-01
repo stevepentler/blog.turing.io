@@ -33,4 +33,4 @@ We’re aware that we fall short in these things, but we prioritize them and pur
 See anything we’ve missed? Agree? Disagree? Want to share what you’re learning with us? We’d love to hear what you have to say.
 
 ---
-**Daisha Versaw** is Community Development Manager at the Turing School of Software & Design.
+**Daisha Versaw** is Story & Community Developer at the Turing School of Software & Design. You can follow her tweets [here](https://twitter.com/daishaversaw).
