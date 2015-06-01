@@ -2,7 +2,7 @@
 title: Women of 1507 Scholarship for July, 2015
 date: 2015-06-01 15:30 UTC
 tags:
-author: Turing Team
+author: Jorge and Daisha
 layout: post
 ---
 
@@ -16,7 +16,7 @@ The Women of 1507 Scholarship is launching now because we want to see more women
 
 In order to be eligible for the Women of 1507 Scholarship, you must meet the following criteria (please read carefully and note the tight deadlines!):
 
-1. You identify as a woman.
+1. You identify as a member of the women's community
 2. You complete your application to Turing School on or before June 14, 2015 through our regular application process at: http://apply.turing.io
 3. You successfully pass your interview with our admissions team and are accepted into Turing’s 1507 cohort, which starts on July 6, 2015.
 4. You successfully enroll in the 1507 cohort by signing your enrollment contract and paying a deposit of $1,000 on or before June 19, 2015.
@@ -31,10 +31,10 @@ We are offering two scholarship amounts:
 
 ## Women of 1507 Scholarship Essay (due June 20, 2015):
 
-The purpose of this essay is to allow our scholarship panel to learn more about you and to better understand your passion and determination to become a programmer as well as your relative financial need.
+The purpose of this essay is to allow our scholarship panel to learn more about you and to better understand your passion and determination to become a programmer as well as your relative financial need. Answer each of the following:
 
-1. In 400-600 words, please tell us the story of how you became interested in a career in software development?
-2. In 400-600 words, please share something you would be passionate about contributing to the world in the next five years.
+1. In 400-600 words, please tell us the story of how you became interested in a career in software development.
+2. In 400-600 words, please share something you would be passionate about contributing to the world in the next five years through software.
 3. In 400-600 words, please describe your financial barriers and how participation in this scholarship program could impact your ability to pursue education at Turing and a career in software development.
 
 ## How will scholarship recipients be selected?
