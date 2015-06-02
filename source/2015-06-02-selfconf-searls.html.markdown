@@ -1,6 +1,6 @@
 ---
 title: "Self.Conference: Searls &amp; Controllers"
-date: 2015-06-03 7:07 UTC
+date: 2015-06-02 7:07 UTC
 tags:
 author: Jeff Casimir
 layout: post
