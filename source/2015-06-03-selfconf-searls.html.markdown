@@ -1,6 +1,6 @@
 ---
 title: "Self.Conference: Searls &amp; Controllers"
-date: 2015-06-03 13:07 UTC
+date: 2015-06-03 7:07 UTC
 tags:
 author: Jeff Casimir
 layout: post
@@ -14,13 +14,14 @@ The opening keynote was by my friend [Justin Searls](https://twitter.com/searls)
 The session was titled "Sometimes a Controller is Just a Controller" and the core of the content was about
 writing high-quality, boring, highly-maintainable software.
 
-<img src='https://pbs.twimg.com/profile_images/2360535353/20120630-face.jpg' style="width:200px; float:right; margin: 20px"/>
+<a href='https://twitter.com/searls'>
+<img src='https://pbs.twimg.com/profile_images/2360535353/20120630-face.jpg' style="width:160px; float:right; margin: 10px 20px 20px 20px"/></a>
 
 Justin got things going with an interesting question: we've been building software for some 50 years at this point. Are we demonstrably any better at it? Sure, our code does more. We can stand on the shoulders of giants and use high level languages in tandem with amazing frameworks to produce complex systems in a short time. But is the code *better*? Is it easier or perhaps less stressful to maintain than code of 30 years ago? The answer is probably "yes," but it isn't a slam dunk.
 
 Justin's theory is that the pressure of evolution in development practices is *not* towards quality. Good code doesn't stamp out bad code. In fact, it seems that fighting bad or complex code is an effort to fight entropy. In a system dominated by organization and order, entropy is constantly trying to sneak in. The best implemented application could, at any minute, fall victim to "clever."
 
-<img src='http://www.blogcdn.com/www.mandatory.com/media/2013/08/idiocracy.jpg' style="width:200px; float:left; margin: 20px"/>
+<img src='http://www.blogcdn.com/www.mandatory.com/media/2013/08/idiocracy.jpg' style="width:180px; float:left; margin: 10px 20px 20px 0px"/>
 
 Why doesn't progress push us towards quality? It reminds me of [Idiocracy](http://www.imdb.com/title/tt0387808/). The best developers, it seems, are tortured by anxiety. Conscientious coders, Justin contends, doubt themselves. They worry. They second guess. That's what pushes them toward quality and simplicity.
 
@@ -40,7 +41,7 @@ But "fast." I worry about "fast." Reaching all the way back to Hungry Academy, w
 
  Does that environment incentivize quality? Not naturally. We want to see finished software. At times, and even now occasionally, we've been willing to overlook quality issues if they led to working software. When it comes down to it, our environment trends towards the same patterns as the VC world: move fast, sacrifice quality, ship, and hope you can get out before it all comes crashing down.
 
-<img src='http://www.devsniper.com/wp-content/uploads/gettingrealbook.jpg' style="width:200px; float:left; margin: 10px 20px 20px 0px"/>
+<a href='https://gettingreal.37signals.com/ch05_Half_Not_Half_Assed.php'><img src='http://www.devsniper.com/wp-content/uploads/gettingrealbook.jpg' style="width:200px; float:left; margin: 10px 20px 20px 0px"/></a>
 
 How do we resist that tendency? Cut back on the intensity? Build smaller things over a longer period of time? One of my [all-time favorite tech readings](https://gettingreal.37signals.com/ch05_Half_Not_Half_Assed.php) comes from [Jason Fried](https://twitter.com/jasonfried). Build half a product, not a half-assed product. That's what we try to tell them. *Over and over*.
 
@@ -49,6 +50,8 @@ But it's so hard to believe. Everyone wants to deliver a shiny, impressive proje
 To all the current and future software developers out there, please *slow down*. It's not worth it. Work hard, have high expectations, but if you need to make a sacrifice then cut scope not quality. Build a small, excellent thing that shows promise. Avoid the temptation to build an application that's shiny on the outside but rotten in the core.
 
 Allow yourself to feel anxious. Feel self-conscious. Imagine the people you respect are going to read this code. Practice being your best self, even under difficult conditions. Wrap your myelin around excellence. Even if you see those willing to compromise themselves pull ahead in the short term, know that you won't regret quality.
+
+<a href='http://blog.testdouble.com/posts/2015-05-11-sometimes-a-controller-is-just-a-controller.html'><img src='/images/article_images/sometimes-a-controller.png' style="float:right; margin: 10px 20px 20px 0px"/></a>
 
 Justin has both a high-quality video and the slides for his talk ["Sometimes a Controller is Just a Controller"](http://blog.testdouble.com/posts/2015-05-11-sometimes-a-controller-is-just-a-controller.html) up on the Test Double blog. I hope to share more ideas from his and other Self.Conference talks in the coming days. Thanks for reading.
 
