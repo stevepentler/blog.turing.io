@@ -50,6 +50,6 @@ To all the current and future software developers out there, please *slow down*.
 
 Allow yourself to feel anxious. Feel self-conscious. Imagine the people you respect are going to read this code. Practice being your best self, even under difficult conditions. Wrap your myelin around excellence. Even if you see those willing to compromise themselves pull ahead in the short term, know that you won't regret quality.
 
-You can find a version of [Justin's talk from RailsConf on YouTube](https://www.youtube.com/watch?v=MSgR-hJjdTo). I hope to share more ideas from his and other Self.Conference talks in the coming days. Thanks for reading.
+Justin has both a high-quality video and the slides for his talk ["Sometimes a Controller is Just a Controller"](http://blog.testdouble.com/posts/2015-05-11-sometimes-a-controller-is-just-a-controller.html) up on the Test Double blog. I hope to share more ideas from his and other Self.Conference talks in the coming days. Thanks for reading.
 
 You can find me [on Twitter at @j3](https://twitter.com/j3). If you spot any typos in this article, your [pull requests are greatly appreciated](https://github.com/turingschool/blog.turing.io/blob/master/source/2015-06-03-selfconf-searls.html.markdown).
