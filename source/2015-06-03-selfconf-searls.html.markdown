@@ -16,13 +16,13 @@ writing high-quality, boring, highly-maintainable software.
 
 <img src='https://pbs.twimg.com/profile_images/2360535353/20120630-face.jpg' style="width:200px; float:right; margin: 20px"/>
 
-Justin got things going with an interesting question: we've been building software for some 50 years at this point. Are we demonstrably any better at it? Sure, our code does more. We can stand on the shoulders of giants and use high level languages in tandem with amazing frameworks to produce complex systems in a short time. But is the code *better*? Is it easier or perhaps less-stressful to maintain than code of 30 years ago? The answer is probably "yes," but it isn't a slam dunk.
+Justin got things going with an interesting question: we've been building software for some 50 years at this point. Are we demonstrably any better at it? Sure, our code does more. We can stand on the shoulders of giants and use high level languages in tandem with amazing frameworks to produce complex systems in a short time. But is the code *better*? Is it easier or perhaps less stressful to maintain than code of 30 years ago? The answer is probably "yes," but it isn't a slam dunk.
 
 Justin's theory is that the pressure of evolution in development practices is *not* towards quality. Good code doesn't stamp out bad code. In fact, it seems that fighting bad or complex code is an effort to fight entropy. In a system dominated by organization and order, entropy is constantly trying to sneak in. The best implemented application could, at any minute, fall victim to "clever."
 
 <img src='http://www.blogcdn.com/www.mandatory.com/media/2013/08/idiocracy.jpg' style="width:200px; float:left; margin: 20px"/>
 
-Why doesn't progress push us towards quality? It reminds me of [Idiocracy](http://www.imdb.com/title/tt0387808/). The best developers, it seems, are tortured by anxiety. Contientious coders, Justin contends, doubt themselves. They worry. They second guess. That's what pushes them toward quality and simplicity.
+Why doesn't progress push us towards quality? It reminds me of [Idiocracy](http://www.imdb.com/title/tt0387808/). The best developers, it seems, are tortured by anxiety. Conscientious coders, Justin contends, doubt themselves. They worry. They second guess. That's what pushes them toward quality and simplicity.
 
 The callous coder, on the other hand, doesn't doubt. They sling code. They move fast and break things. They ship without regard. They, effectively, spray their work across the world. It might be junk but once in awhile it works just enough. They're fast, fast, FAST.
 

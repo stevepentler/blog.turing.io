@@ -33,9 +33,9 @@ We are offering two scholarship amounts:
 
 The purpose of this essay is to allow our scholarship panel to learn more about you and to better understand your passion and determination to become a programmer as well as your relative financial need. Answer each of the following:
 
-1. In 400-600 words, please tell us the story of how you became interested in a career in software development.
-2. In 400-600 words, please share something you would be passionate about contributing to the world in the next five years through software.
-3. In 400-600 words, please describe your financial barriers and how participation in this scholarship program could impact your ability to pursue education at Turing and a career in software development.
+1. In 200-300 words, please tell us the story of how you became interested in a career in software development.
+2. In 200-300 words, please share something you would be passionate about contributing to the world in the next five years through software.
+3. In 200-300 words, please describe your financial barriers and how participation in this scholarship program could impact your ability to pursue education at Turing and a career in software development.
 
 ## How will scholarship recipients be selected?
 
