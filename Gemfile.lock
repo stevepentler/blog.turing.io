@@ -136,3 +136,6 @@ DEPENDENCIES
   rouge
   rspec
   sass (= 3.2.19)
+
+BUNDLED WITH
+   1.10.2
