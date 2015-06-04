@@ -7,7 +7,7 @@ layout: post
 ---
 
 Earlier this week  I wrote [some thoughts on software quality and the evolution of the industry](http://blog.turing.io/2015/06/02/selfconf-searls/) based on
- [Justin Searls' "Sometimes a Controller is Just a Controller"](http://blog.testdouble.com/posts/2015-05-11-sometimes-a-controller-is-just-a-controller.html) at [Self.Conference](http://selfconference.org/). Today I'd like to continue with thoughts based off <a href='https://twitter.com/nylons'>Nancy Lyons</a>' "There's No Such Thing as Work/Life Balance" session. I found a [version of her deck as a PDF here](http://pls.printing.org/wp-content/uploads/2015/05/Keynote-Nancy-Lyons-Tues.pdf). I took three pages of notes during the session, but one idea really stuck with me.
+ [Justin Searls' "Sometimes a Controller is Just a Controller"](http://blog.testdouble.com/posts/2015-05-11-sometimes-a-controller-is-just-a-controller.html) at [Self.Conference](http://selfconference.org/). Today, I'd like to continue with thoughts based off <a href='https://twitter.com/nylons'>Nancy Lyons</a>' "There's No Such Thing as Work/Life Balance" session. I found a [version of her deck as a PDF here](http://pls.printing.org/wp-content/uploads/2015/05/Keynote-Nancy-Lyons-Tues.pdf). I took three pages of notes during the session, but one idea really stuck with me.
 
 <a href='https://twitter.com/nylons'>
 <img src='https://pbs.twimg.com/profile_images/3120486993/e852a4758c4d0fa1524169c1cc641f11.png' style="width:160px; float:right; margin: 10px 20px 20px 20px"/></a>
