@@ -1,5 +1,9 @@
-require "./source/helpers/view_helpers"
-require "./source/helpers/comment_helpers"
+# there is a root_path in this object (https://github.com/middleman/middleman/blob/ad05b33cf6c24d1c48aa9e0895d31b481b7bcf17/middleman-core/lib/middleman-core/application.rb#L57-68)
+# but it uses relative paths, so I'm not very confident in it, and going to do this instead.
+root = Pathname.new File.expand_path File.dirname __FILE__
+$LOAD_PATH.unshift root + 'lib'
+require root + "source/helpers/view_helpers"
+require root + "source/helpers/comment_helpers"
 helpers ViewHelpers
 helpers CommentHelpers
 
@@ -45,8 +49,39 @@ activate :blog
 # helpers do
 # end
 
+# Syntax Highlighting
+set :markdown_engine, :redcarpet
+set :markdown,
+  fenced_code_blocks: true,  # Turns on "```ruby\nsome code```" in your code
+  footnotes:          true,  # "Sentence.[^1]" will link to "[^1]: Footnote." and provide a link back.
+  superscript:        true,  # "^hello" will become "<sup>hello</sup>" Note that we don't have any CSS to actually make them look different.
+  highlight:          true,  # "==hello==" will become "<mark>hello</mark>", which is highlighted (bg yellow)
+  lax_spacing:        true,  # Not actually sure what this does. Something with making it not as strict with you placing html in the middle of your markdown.
+  strikethrough:      true,  # "~~hello~~" becomes "<del>omg</del>"
+  autolink:           true,  # parses links, and makes "a" tags, even when the link is not enclosed in angle brackets (sounds like it could slow down rendering, might it off in that case)
+  no_intra_emphasis:  true,  # "foo_bar_baz" will not generate any "<em>" tags
+  tables:             true   # GFM / PHP style tables https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables
+
+
+
+require 'jsl/shell_lexer'
+activate :syntax,
+  wrap:          true,        # Wrap the highlighted content in a container (<pre> or <div>, depending on whether :line_numbers is on).
+  css_class:     'highlight', # Wrap the highlighted content in a container. Defaults to `<pre><code>`, or `<div>` if line numbers are enabled.
+  line_numbers:  false,       # Generate line numbers. Note that this changes HTML, thus styles will need to change, as well.
+  lexer_options: { }          # Options for the Rouge lexers (currently only "debug", but works best to run this f
+
+# half taken from here http://blog.leonardfactory.com/2013/05/05/code-fenced-blocks-pygments-and-line-numbers-with-jekyll/
+# half taken from here https://github.com/middleman/middleman-syntax/blob/d1a49ee30f9a2ef939a00b78f3b38cca6c5bcc0c/lib/middleman-syntax/extension.rb#L20
+class ::Middleman::Renderers::MiddlemanRedcarpetHTML < ::Redcarpet::Render::HTML
+  def codespan(code)
+    %'<code class="inline-code">#{code}</code>' # Inline code custom class
+  end
+end
+
+
 activate :directory_indexes
-set :build_dir, "tmp"
+set :build_dir, root+"tmp"
 
 # Define assets directories
 set :css_dir,    'stylesheets'

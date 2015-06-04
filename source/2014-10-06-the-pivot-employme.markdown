@@ -26,7 +26,7 @@ Below is the report from Corey Davis, Alan Smith, Robert Gu, and Horacio Chavez:
 
 Our latest project for [Turing](http://turing.io) involves pivoting a legacy codebase to a multi-tenant app. Specifically we are taking a previous single-tenant restaurant app and turning it into a multi-tenant employment app (think miniature Monster.com.) Working with legacy code comes with a lot of challenges. The obvious problem was the architecture and design of our codebase was directed to meet the needs of a single restaurant, not an employment site.
 
-So to start, what is a pivot? Well from our seat (that of students at Turing) a pivot is taking something and making into something TOTALLY different. Which from our perspective seems totally ludacris. But the truth of it is that this is something that actually happens to us (developers) especially in the consultancy side of our world. So what does it mean?
+So to start, what is a pivot? Well from our seat (that of students at Turing) a pivot is taking something and making into something TOTALLY different. Which from our perspective seems totally ludicrous. But the truth of it is that this is something that actually happens to us (developers) especially in the consultancy side of our world. So what does it mean?
 
 ### Legacy Code
 

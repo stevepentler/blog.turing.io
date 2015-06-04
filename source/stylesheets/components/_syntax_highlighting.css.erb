@@ -1,0 +1,66 @@
+<%=
+  # https://github.com/jneen/rouge/blob/f30adef49fcc99b0f80eed4c31eb084ef9da4031/lib/rouge.rb#L32-57
+  # Rouge::Theme.registry
+  theme = Rouge::Theme.find(
+    # "thankful_eyes"
+    # "colorful"
+    # "base16"
+    # "base16.dark"
+    # "base16.solarized"
+    # "base16.solarized.dark"
+    # "base16.monokai"
+    # "base16.monokai.light"
+    # "github"
+    # "monokai"
+      "molokai"
+    # "monokai.sublime"
+  )
+
+  # This is the output I chose for molokai, it probably doesn't fit well for other themes.
+  # It's a medium gray with a tinge of bluish green that looks nice with our Turing colours, IMO
+  generic_output = Rouge::Token.cache["Generic.Output"]
+  theme.styles[generic_output][:fg] = "#577787"
+
+  # Set "black" from molokai's custom shade of "not exactly black"
+  # to Turing's custom shade of "not exactly black"
+  theme.palette[:black] = '#262626'
+
+  # Render the styleet under the css class ".highlight"
+  theme.render scope: '.highlight'
+%>
+
+<% # Got this list from: http://css-tricks.com/snippets/css/rounded-corners/
+   def self.border_radius(radius)
+     <<-CSS.gsub(/^\s*/, '  ')
+       -moz-border-radius:    #{radius};
+       -webkit-border-radius: #{radius};
+       border-radius:         #{radius};
+       -khtml-border-radius:  #{radius};
+     CSS
+  end
+%>
+
+/* ```ruby
+   puts "hello, world"
+   ```
+
+   in Markdown
+*/
+.highlight {
+  padding:     0.75em;
+  line-height: 1.3em;
+
+  /* Chose these b/c that's what Github uses, and their code looks very nice */
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  <%= border_radius '0.4em' %>
+}
+
+/* `ruby -v` in Markdown */
+.inline-code {
+  background-color: #EEE;
+  border:           1px solid #AAA;
+  padding:          0em 0.3em 0.1em 0.3em;
+  height:           auto;
+  white-space:      nowrap;
+  <%= border_radius '0.2em' %>
+}
