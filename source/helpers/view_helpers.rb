@@ -4,9 +4,7 @@ module ViewHelpers
   end
 
   def create_summary(text)
-    #text[0..199] << "..."
-    #text.split[0..100].join(" ")
-    text.split("\n\n")[0..1].join("\n\n")
+    text.split("\n\n")[0]
   end
 
   def nav_active(page)
