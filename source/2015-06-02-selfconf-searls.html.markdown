@@ -55,4 +55,4 @@ Allow yourself to feel anxious. Feel self-conscious. Imagine the people you resp
 
 Justin has both a high-quality video and the slides for his talk ["Sometimes a Controller is Just a Controller"](http://blog.testdouble.com/posts/2015-05-11-sometimes-a-controller-is-just-a-controller.html) up on the Test Double blog. I hope to share more ideas from his and other Self.Conference talks in the coming days. Thanks for reading.
 
-You can find me [on Twitter at @j3](https://twitter.com/j3). If you spot any typos in this article, your [pull requests are greatly appreciated](https://github.com/turingschool/blog.turing.io/blob/master/source/2015-06-03-selfconf-searls.html.markdown).
+You can find me [on Twitter at @j3](https://twitter.com/j3). If you spot any typos in this article, your [pull requests are greatly appreciated](https://github.com/turingschool/blog.turing.io/blob/master/source/2015-06-02-selfconf-searls.html.markdown).
