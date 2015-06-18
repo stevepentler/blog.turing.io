@@ -1,6 +1,6 @@
 ---
 title: Lori Culberson: Redefining What It Means to Win
-date: 2015-06-16 
+date: 2015-06-18
 tags:
 author: Rachel Warbelow & Daisha Versaw
 layout: post
