@@ -2,6 +2,7 @@ require "rack"
 require "middleman/rack"
 require "rack/contrib/try_static"
 require "rack/rewrite"
+require "honeybadger"
 
 # Build the static site when the app boots
 # `bundle exec middleman build`
@@ -25,6 +26,14 @@ use Rack::TryStatic,
     root: "tmp",
     urls: %w[/],
     try:  ['.html', 'index.html', '/index.html']
+
+# Configure and start Honeybadger
+honeybadger_config = Honeybadger::Config.new(env: ENV['RACK_ENV'])
+Honeybadger.start(honeybadger_config)
+
+# And use Honeybadger's rack middleware
+use Honeybadger::Rack::ErrorNotifier, honeybadger_config
+use Honeybadger::Rack::MetricsReporter, honeybadger_config
 
 # Serve a 404 page if all else fails
 run -> env {
