@@ -6,8 +6,6 @@ author: Morgan Miller
 layout: post
 ---
 
-Learning How to Learn: The Novice Developer’s Tool Belt
-
 There are dozens, perhaps hundreds, even maybe one <em>million</em> ways to attempt to learn how to code. And they aren’t all great. Most beginners’ track tutorials entail hand-holdy instructions, nifty in-browser interpreters and a swift sense of accomplishment, but rarely do they breed a developer’s mindset. On the other hand, intermediate-level walkthroughs and Stackoverflow threads often assume too much contextual knowledge for a beginner to follow. A giant chasm of confusion exists between finishing your first Ruby tutorial and deploying your first app to production. I know this to be true, because those “tutorial blues” are why I applied to Turing in the first place.
 
 After three months of using tutorials to learn Python, then Ruby, I could hardly conceptualize what a completed project in either language would look like – let alone write one. It was frustrating to sail through my umpteenth online course but still have no idea how to take that leap into <em>actually coding.</em> Then, after a whirlwind six weeks at Turing, I began my first personal side project in collaboration with Josh Cheek. As an instructor who advocates experimentation as a tool to discovery, he challenged me to use Sinatra, ActiveRecord, REST Client, RAKE, and a lot of other frameworks and concepts that were completely foreign to me. But the challenges weren’t unconquerable. I realized that in those six weeks, while I hadn’t necessarily learned how to capital-C “Code,” I had learned how to <em>learn</em> how to code. 
