@@ -1,5 +1,5 @@
 ---
-title: Learning How to Learn: The Novice Developer's Tool Belt
+title: Learning How to Learn -- The Novice Developer's Tool Belt
 date: 2015-06-19
 tags:
 author: Morgan Miller
