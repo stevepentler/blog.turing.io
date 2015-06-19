@@ -34,10 +34,6 @@ The power to see what’s happening with your code, line by line, is undeniable.
 
 Knowing how to search for something is definitely a tool. And when you’re first learning how to code, you just don’t have the vernacular to posit a sensible query to a search engine. Google probably doesn’t know how to “make a list thing change into the other list thing ruby stackoverflow.” But it can tell you how to “convert a Ruby array into a hash.” Get your basic vocabulary down by reading beginner’s books (I like <em>Eloquent Ruby</em>), and you’ll be fluent enough to get the help you need from the mythical search engine spiders.
 
-**4. The Problem Breaker-Downer**
-
-It sort of looks like a chisel. Or maybe a mandolin slicer. Basically, it’s the ability to break a gigantic problem into its smaller constituents.
-
 If the problem is your project itself, pseudo-code it from start to finish and tackle each sub-issue on your list in isolation. If the problem is working with a brand new gem that you’ve never used before, then make a list of all of your ‘unknowns.’ What Classes are you working with and what behaviors do they have? What methods do you need? What can you pass into those methods, what do those methods return to you? Take each unknown one-at-a-time, and apply the simplest use cases you can think of to find your answers.
 
 **5. The Guess-O-Meter**
