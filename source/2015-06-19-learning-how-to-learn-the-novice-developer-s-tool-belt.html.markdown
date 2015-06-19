@@ -14,23 +14,28 @@ Learning how to code all comes down to growing your developer’s tool belt: sto
 
 Here is what six weeks at Turing lent to my Ruby tool belt:
 
-(1) The Mighty Hammer of Debugging
+*(1) The Mighty Hammer of Debugging*
+
 They say that when all you have is a hammer, everything starts to look like a nail. But let’s just say that every test error or failure IS a nail… Then a hammer comes in pretty handy, right?
 
 For Ruby and Rails, my debugging hammer is <a href=”http://pryrepl.org/”>Pry</a>. Put ‘pry’ in your Gemfile and stick a binding anywhere you want to interact with your code. Prying around is kind of like freezing time, falling into the matrix of your program, and moving the time-frozen objects around with your bare hands to see how they fall. Except instead it’s in your terminal, with an IRB-style interface and your keyboard.
 
-(2) X-Ray Glasses
+*(2) X-Ray Glasses*
+
 The power to see what’s happening with your code, line by line, is undeniable. Josh Cheek’s <a href=”https://github.com/JoshCheek/seeing_is_believing”>Seeing Is Believing</a> tool is basically to Rubyists what every electrician probably wishes they had to see through walls. It evaluates each line of code right inside of your editor, which can save a lot of time and be a generally enlightening experience.
 
-(3) The Google Dictionary
+*(3) The Google Dictionary*
+
 Knowing how to search for something is definitely a tool. And when you’re first learning how to code, you just don’t have the vernacular to posit a sensible query to a search engine. Google probably doesn’t know how to “make a list thing change into the other list thing ruby stackoverflow.” But it can tell you how to “convert a Ruby array into a hash.” Get your basic vocabulary down by reading beginner’s books (I like <em>Eloquent Ruby</em>), and you’ll be fluent enough to get the help you need from the mythical search engine spiders. 
 
-(4) The Problem Breaker-Downer
+*(4) The Problem Breaker-Downer*
+
 It sort of looks like a chisel. Or maybe a mandolin slicer. Basically, it’s the ability to break a gigantic problem into its smaller constituents.
 
 If the problem is your project itself, pseudo-code it from start to finish and tackle each sub-issue on your list in isolation. If the problem is working with a brand new gem that you’ve never used before, then make a list of all of your ‘unknowns.’ What Classes are you working with and what behaviors do they have? What methods do you need? What can you pass into those methods, what do those methods return to you? Take each unknown one-at-a-time, and apply the simplest use cases you can think of to find your answers.
 
-(5) The Guess-O-Meter
+*(5) The Guess-O-Meter*
+
 This one definitely requires a sense of humor and a comfort with being wrong more than you are right. Lately, I use it a lot for command line flags and ActiveRecord methods (which is probably just a testimony to how intuitive ActiveRecord is). 
 
 The act of guessing is powerful for two reasons: First, it requires what I like to think of as ‘active learning.’ It’s easy to Google the answer, and even easier to copy-and-paste. But that’s passive, and you’re less likely to retain it. When you force yourself to think critically about something you know nothing about, you’re forcing yourself to make sense of it. Those are the things you will remember later on.
