@@ -28,7 +28,7 @@ For Ruby and Rails, my debugging hammer is <a href=”http://pryrepl.org/”>Pry
 
 **2. X-Ray Glasses**
 
-The power to see what’s happening with your code, line by line, is undeniable. Josh Cheek’s <a href=”https://github.com/JoshCheek/seeing_is_believing”>Seeing Is Believing</a> tool is basically to Rubyists what every electrician probably wishes they had to see through walls. It evaluates each line of code right inside of your editor, which can save a lot of time and be a generally enlightening experience.
+The power to see what’s happening with your code, line by line, is undeniable. Josh Cheek’s <a href="https://github.com/JoshCheek/seeing_is_believing">Seeing Is Believing</a> tool is basically to Rubyists what every electrician probably wishes they had to see through walls. It evaluates each line of code right inside of your editor, which can save a lot of time and be a generally enlightening experience.
 
 **3. The Google Dictionary**
 
