@@ -10,7 +10,7 @@ Check out a sampling of lightning talks from the last week:
 
 ### Exploring the MEAN Stack by Tom Leskin (1502 cohort)
 
-At Turing, students are taught to become diverse developers who are able to think logically and can use any programming language as a tool to solve a problem. In my Module 3 Lightning Talk, I chose to explore the MEAN Stack. The MEAN Stack is made up of four frameworks: MongoDB, ExpressJS, AngularJS and Node.js. It uses a single language language across the entire stack and has been said to increase productivity. I realize that I may not be programming in Ruby and Rails after Turing, so I wanted to explore other frameworks and drive deeper into JavaScript.
+At Turing, students are taught to become diverse developers who are able to think logically and can use any programming language as a tool to solve a problem. In my Module 3 Lightning Talk, I chose to explore the MEAN Stack. The MEAN Stack is made up of four frameworks: MongoDB, ExpressJS, AngularJS and Node.js. It uses a single language across the entire stack and has been said to increase productivity. I realize that I may not be programming in Ruby and Rails after Turing, so I wanted to explore other frameworks and drive deeper into JavaScript.
 
 
 <iframe src="https://player.vimeo.com/video/131476026" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/131476026">Exploring the MEAN Stack -- Tom Leskin</a> from <a href="https://vimeo.com/turing">Turing School</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
