@@ -52,4 +52,4 @@ Shaughnessy, Pat. "Chapter 1: Tokenization and Parsing." *Ruby under a Microscop
 
 ---
 
-**Jack Yeh** is a student in the 1503 cohort. He started programming in December of 2014. Prior to Turing, Jack spent 10+ years in global supply chains working for multinational companies, such as Wal-mart, Groupon and China Post. When he is not staring at a screen, he is building a tiny house on wheels and exploring Colorado’s vast wilderness. Find Jack on Twitter at @tinyhousejack or github.com/jxandery.
+**Jack Yeh** is a student in the 1503 cohort. He started programming in December of 2014. Prior to Turing, Jack spent 10+ years in global supply chains working for multinational companies, such as Wal-mart, Groupon and China Post. When he is not staring at a screen, he is building a tiny house on wheels and exploring Colorado’s vast wilderness. Find Jack on Twitter at [@tinyhousejack](https://twitter.com/tinyhousejack) or [github.com/jxandery](http://github.com/jxandery).
