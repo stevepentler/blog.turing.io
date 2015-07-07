@@ -1,6 +1,6 @@
 ---
 title: "A Beginner's Attempt at Understanding the Ruby Black Box: Tokenization"
-date: 2015-07-06
+date: 2015-07-07
 tags:
 author: Jack Yeh
 layout: post
