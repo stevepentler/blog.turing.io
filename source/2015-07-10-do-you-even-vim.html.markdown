@@ -1,6 +1,6 @@
 ---
 title: Do You Even Vim?
-date: 2015-07-09
+date: 2015-07-10
 tags:
 author: David Daniel
 layout: post
