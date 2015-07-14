@@ -6,7 +6,7 @@ author: Sebastian Abondano
 layout: post
 ---
 
-## Why is programming greatness important?
+Why is programming greatness important?
 
 In a previously lost interview from 1995, Steve Jobs explained the difference between the best software developers and average ones:
 > In most businesses, the difference between average and good is at best 2 to 1, right? Like, if you go to New York and you get the best cab driver in the city, you might get there 30% faster than with an average taxicab driver. A 2 to 1 gain would be pretty big.
