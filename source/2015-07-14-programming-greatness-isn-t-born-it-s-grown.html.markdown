@@ -37,7 +37,7 @@ Learning how to program is a long and treacherous road so for all of you startin
 
 2. Do you know how to ignite passion?
 
-    Deep practice will take a lot of energy and discipline. You will need passion fuel you. If you're not one of the few people for which passion has been naturally ignited by the environment around you, make it a point to learn how these signals (passion) work so you can reverse engineer it. Do you know how these signals work?
+    Deep practice will take a lot of energy and discipline. You will need passion to fuel you. If you're not one of the few people for which passion has been naturally ignited by the environment around you, make it a point to learn how these signals (passion) work so you can reverse engineer it. Do you know how these signals work?
 
 3. Do you have a master coach (trainer/teacher)? Do they inspire deep practice and fuel you with passion?
 
