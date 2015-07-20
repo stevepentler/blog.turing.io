@@ -6,13 +6,11 @@ author: Eric Dowty
 layout: post
 ---
 
-### Get Some PI: A Beginners Guide to Integrating Hardware
-
 ![Raspberry Pi Logo](http://pi.qcontinuum.com/Welcome/Welcome_Resources/raspberry-pi-900-75-2.png?raw=true)
 
 Do you remember that feeling when you created your first web page? When you could finally call your mom and tell her to visit *your-awesome-project.com*? After months of writing code finally you felt like you had accomplished something real that you could share with the world. Integrating hardware into your web applications takes that feeling one step further allowing your web applications to interact with not just cyberspace, but the physical world around you. This may seem like an impossible task. I mean, we're just students, how could we possibly have the skills to do this? Keep reading and I'll explain how you can get started.
 
-The good news is that you don't have to start from scratch! Thousands of do-it-yourself enthusiasts have come before you to pave the way to hardware integration greatness. The hardware and code to start your journey have already been developed allowing you to take a lego-like approach to putting something together. 
+The good news is that you don't have to start from scratch! Thousands of do-it-yourself enthusiasts have come before you to pave the way to hardware integration greatness. The hardware and code to start your journey have already been developed allowing you to take a lego-like approach to putting something together.
 
 Before you get started you will have to identify which piece of hardware you would like to integrate. There are several hardware devices that you may want to take a look at integrating, check out [this link](http://cylonjs.com/documentation/platforms/) to view dozens of possibilities. In this post we will be discussing the popular Raspberry Pi.
 
@@ -24,32 +22,32 @@ So now that we have hardware what is the next step? Believe it or not there is m
 
 Once your OS is up and running and you begin to develop your projects you'll have to write code to integrate your sensors and other hardware with the Raspberry Pi. There is even more great news! Whatever language you prefer to code with there is probably a library already written to help you with this task. Below is a list of libraries you may want to research:
 
-* Ruby - Artoo 
+* Ruby - Artoo
 * Python - GPIO
 * Golang - Gobot
 * JavaScript - Cylon.js
 
 Now that we have our hardware picked out and a nice library of code to work with we need to talk inspiration. There are so many projects that may come to mind, however, I'd suggest that for your first project you follow a tutorial to get used to Raspberry Pi development. Below are a few projects that you may want to consider. If none of these quite hit the spot check out [this link](http://www.treehugger.com/slideshows/gadgets/20-awesome-projects-raspberry-pi-microcomputers/) for more ideas.
 
-1. Automated Time-Lapse Photography
+__1. Automated Time-Lapse Photography__
 
 ![Raspberry Pi Time Lapse Camera](http://media.treehugger.com/assets/images/2013/02/time-lapse-dolly.jpg.644x0_q70_crop-smart.jpg?raw=true)
 
 [This tutorial](http://www.instructables.com/id/Raspberry-Pi-powered-time-lapse-dolly-RasPiLapse/?ALLSTEPS) will walk you through how to integrate a camera to produce time lapse photography.
 
-2. Automatic Deviant Art Picture Frame
+__2. Automatic Deviant Art Picture Frame__
 
 ![Raspberry Pi Deviant Art](http://media.treehugger.com/assets/images/2013/02/deviant-art-picture-frame-wired-design.jpg.644x0_q70_crop-smart.jpg?raw=true)
 
 [This tutorial](http://theswitchtolinux.blogspot.com/2012/12/raspberry-pi-daily-deviations-picture.html) will walk you through how to create a picture frame which automatically cycles through pictures from the pop art site [DeviantArt](http://www.deviantart.com/).
 
-3. Dog Treat Dispenser
+__3. Dog Treat Dispenser__
 
 ![Raspberry Pi Dog Treat Dispenser](http://media.treehugger.com/assets/images/2013/02/treat-machine.jpg.644x0_q70_crop-smart.jpg?raw=true)
 
 [This tutorial](http://www.nyccnc.com/judd-treat-machine.html) will walk you through how to create a dispenser that will automatically release a dog treat when an email is sent to a specific address.
 
-4. Old School Arcade Game
+__4. Old School Arcade Game__
 
 ![Raspberry Pi Arcade](http://cnet4.cbsistatic.com/hub/i/r/2012/11/27/2862e2f6-cbf2-11e2-9a4a-0291187b029a/resize/770x578/f1e1feda0740a98003b6732679a83400/25-things-to-do-with-raspberry-pi-arcade.jpg?raw=true)
 
