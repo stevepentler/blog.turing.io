@@ -4,7 +4,7 @@ module ViewHelpers
   end
 
   def create_summary(text)
-    text.split("\n\n")[0]
+    strip_tags(text).gsub("\n", " ")[0..300] << "..."
   end
 
   def nav_active(page)
