@@ -7,7 +7,7 @@
           = format_date(article.date)
         %h1
           = link_to article.title, article.url
-        %h3
+        %h3.author
           = article.data.author
         %p
           = create_summary(article.body)
