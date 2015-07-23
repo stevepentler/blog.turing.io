@@ -6,6 +6,8 @@ author: Turing School of Software & Design
 layout: post
 ---
 
+![Diversity Scholarship](article_images/diversity-scholarship.jpg)
+
 Turing stands for the inclusion and equality of all people, regardless of race, gender, sexual orientation, age, zip code, background, or life experience. When we look at the tech industry overall, though, we see significant biases and a lot of missing faces. So many amazing people who could make monumental contributions to software development have not yet entered the field. This needs to change.
 
 People build software to solve problems, but we tend to only solve problems when we know they exist. Until the experiences of all software developers begin to mirror the experiences of all software users, real problems will remain unsolved and real needs will remain unmet. If you don’t see yourself as fitting some “typical software developer mold”, then you are exactly who we need. We want you to study at Turing precisely because you break the mold. Your differences are valuable.
