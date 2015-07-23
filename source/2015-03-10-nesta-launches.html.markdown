@@ -2,6 +2,7 @@
 title: NESTA Launches in Support of the White House & TechHire
 date: 2015-03-10 14:47 UTC
 tags:
+author: Turing School of Software & Design
 layout: post
 ---
 

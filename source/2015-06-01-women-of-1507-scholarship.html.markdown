@@ -2,7 +2,7 @@
 title: Women of 1507 Scholarship for July, 2015
 date: 2015-06-01 15:30 UTC
 tags:
-author: Jorge Téllez & Daisha Versaw
+author: Turing School of Software & Design
 layout: post
 ---
 
