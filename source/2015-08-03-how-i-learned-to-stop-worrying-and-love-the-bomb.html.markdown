@@ -5,6 +5,8 @@ tags: errors, Stacktrace, dev school, learn Ruby
 author: Marla Brizel
 layout: post
 ---
+![Halp!](http://marlabrizel.github.io/assets/img/failing_tests.png)
+
 Errors are your friends.
 
 This idea was difficult for me to grasp when I first started programming. A typical block of work time would consist of the following:
