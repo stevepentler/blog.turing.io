@@ -11,7 +11,7 @@ layout: post
 Last week one of my closest friends, [Jake Brewer](http://nation.foxnews.com/2015/09/26/mary-katharine-ham-memorializes-her-husband-jake-brewer), died in a cycling accident. I've spent
 the last week reflecting with those he left behind.
 
-In a remembrance his friend [Michael Silberman](https://twitter.com/silbatron) said *"there was no idea too optimistic for Jake. Most of us work to fix an issue, Jake worked to fix democracy."* One of Jake's teammates said *"nothing felt as powerful as when he believed in you. Sometimes the hardest part was living up to the **'potential you'** that he saw."* For me, personally, Jake's faith and encouragement propelled me to start Jumpstart Lab, Hungry Academy, gSchool, and Turing.
+In a remembrance his friend [Michael Silberman](https://twitter.com/silbatron) said *"there was no idea too optimistic for Jake. Most of us work to fix an issue, Jake worked to fix democracy."* One of Jake's teammates said *"nothing felt as powerful as when he believed in you. Sometimes the hardest part was living up to the 'potential you' that he saw."* For me, personally, Jake's faith and encouragement propelled me to start Jumpstart Lab, Hungry Academy, gSchool, and Turing.
 
 But there was something you couldn't miss about the week. There weren't just a dozen
 people who felt that way. There were hundreds. His funeral at the National
