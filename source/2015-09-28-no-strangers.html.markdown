@@ -6,7 +6,7 @@ author: Jeff Casimir
 layout: post
 ---
 
-<img src='/images/jake_brewer_3.jpg' style="width:250px; float:right; margin: 1em;"/>
+<img src='/images/article_images/jake_brewer_3.jpg' style="width:250px; float:right; margin: 1em;"/>
 
 Last week one of my closest friends, [Jake Brewer](http://nation.foxnews.com/2015/09/26/mary-katharine-ham-memorializes-her-husband-jake-brewer), died in a cycling accident. I've spent
 the last week reflecting with those he left behind.
@@ -22,7 +22,7 @@ How could one person be so special to so many? Sure, he worked hard. But many pe
 What was the special thing that caused people to build strong connections to Jake
 so quickly?
 
-<img src='/images/jake_brewer_2.jpg' style="width:250px; float:right; margin: 1em;"/>
+<img src='/images/article_images/jake_brewer_2.jpg' style="width:250px; float:right; margin: 1em;"/>
 
 Jake was known for singing. He'd sing washing the dishes. He'd sing walking to a
 meeting. He'd sing midway up a punishing climb on the bike. You couldn't help but
@@ -35,7 +35,7 @@ questions and his faith filled you with belief in yourself. Jake was a person th
 saw potential in every moment. He saw every one of us as agents of change. Even
 when he didn't know you. In his life there were no strangers, there were only friends he hadn't met yet. And it came through in every conversation.
 
-<img src='/images/jake_brewer_1.jpg' style="width:250px; float:right; margin: 1em;"/>
+<img src='/images/article_images/jake_brewer_1.jpg' style="width:250px; float:right; margin: 1em;"/>
 
 In his memory and in his image, let's work on things that matter, believe that
 we'll make a difference, and most of all believe that we're at our best when we
