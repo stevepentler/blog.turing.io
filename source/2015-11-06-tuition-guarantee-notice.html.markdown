@@ -18,7 +18,7 @@ It is due to this decision that Turing has been required to remove the Tuition R
 
 Any students that are currently enrolled and have started classes as of November 1, 2015, prior to the change in policy mandated by DPOS, will not be affected by the new ruling. Turing will continue to honor its contractual agreements made with each of its current students, and with those who have graduated and are in the three month job search period.
 
-The DPOS decision won't affect our prospective students' outcome. We are deeply invested in our students' success. We will still maintain our job search assistance program, and we will continue to work with each student to develop a job search plan, get assistance in drafting resumes, prepare for technical interviews and provide professional development tools.
+The DPOS' decision won't affect our prospective students' outcome. We are deeply invested in our students' success. We will still maintain our job search assistance program, and we will continue to work with each student to develop a job search plan, get assistance in drafting resumes, prepare for technical interviews and provide professional development tools.
 
 **94 percent of our graduates** find employment as professional software developers within 3 months after graduation.
 
