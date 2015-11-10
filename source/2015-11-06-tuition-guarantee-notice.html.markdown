@@ -20,6 +20,6 @@ Any students that are currently enrolled and have started classes as of November
 
 The DPOS' decision won't affect our prospective students' outcome. We are deeply invested in our students' success. We will still maintain our job search assistance program, and we will continue to work with each student to develop a job search plan, get assistance in drafting resumes, prepare for technical interviews and provide professional development tools.
 
-**94 percent of our graduates** find employment as professional software developers within 3 months after graduation.
+**95 percent of our graduates** find employment as professional software developers within 3 months after graduation. Their average starting salary is $78K.
 
 To obtain additional information on DPOS' decision, please contact DPOS directly. You can find its contact information [here](http://highered.colorado.gov/DPOS/About/staff.html).
