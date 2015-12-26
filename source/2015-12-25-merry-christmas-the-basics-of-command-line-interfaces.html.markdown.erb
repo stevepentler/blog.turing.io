@@ -1,0 +1,381 @@
+---
+title: Merry Christmas! The Basics Of Command Line Interfaces
+date: 2015-12-25 19:31 UTC
+tags:
+author: Josh Cheek
+layout: post
+---
+
+This blog will bootstrap you with the knowledge you need
+to make programs with interesting command-line interfaces.
+It uses Ruby, but much of the knowledge is language independent.
+
+Input, Output, and Instructing the Terminal
+-------------------------------------------
+
+Command-line programs are programs that have a single input stream,
+named "standard input", and two output streams, named "standard output"
+and "standard error". In ruby you can access these streams as global variables:
+
+```ruby
+$stdin  # => #<IO:<STDIN>>
+$stdout # => #<IO:<STDOUT>>
+$stderr # => #<IO:<STDERR>>
+```
+
+When you invoke the method `gets`, you are really invoking `$stdin.gets`,
+and when you invoke `puts`, you are really invoking `$stdout.puts`.
+
+There are technically other ways to communicate with a program,
+but for the most part, it's just reading from the input and printing
+to the output.
+
+Given this fact, when we want to communicate with the terminal to tell it
+things like "change the colour", we need to print these instructions.
+
+Given that we are printing both text (eg `puts "hello world"`)
+and instructions (eg "change the text colour),
+we need some way of telling it that the next piece
+of information is a command. We typically do this with a "Control Sequence Introducer",
+usually abbreviated to "CSI". It's sometimes also called an "escape code,
+because it begins with the escape key.
+
+Here is an example:
+
+```ruby
+puts "normal \e[35;46m magenta on cyan \e[39;49m normal"
+```
+
+![Magenta text on a cyan background](article_images/christmas-cli/magenta-on-cyan.png)
+
+
+Anatomy Of A Command:
+---------------------
+
+We'll just concern ourselves with the most common form of CSI.
+It looks like this:
+
+* `\e` escape character
+* `[` left bracket
+
+After this, you can give it the sequence, which looks like this:
+
+* `35;46` numeric arguments separated by semi-colons
+* `m` a character that specifies which command we're running
+
+The most important part is the character, that's like a method name.
+You have to either look these up or memorize them (I'll tell you the useful ones below)
+The meaning of the numbers will change depending on the character you're passing them to.
+In this case, `31` means "foreground red", and `42` means "background green".
+
+
+Printing Colour
+---------------
+
+The command `m` is for everything related to the appearance of text.
+You want to bold? That's `m`. Change colour? `m`, underline? `m`.
+
+There are 8 main colours, as well as 8 "bright" versions of them.
+The ones digit is used to specify which of the colours you want,
+and the tens digit is for whether it applies to foreground, background,
+bright foreground, or bright background.
+
+Ones digit:
+
+* 0 Black
+* 1 red
+* 2 green
+* 3 yellow
+* 4 blue
+* 5 magenta
+* 6 cyan
+* 7 white
+* 9 turn colour off (only works with 30s and 40s)
+
+Tens digit (yes, I know the background goes into the hundreds digit)
+
+* 3 foreground
+* 4 background
+* 9 foreground bright
+* 10 background bright
+
+So, from the example earlier, in `35`,
+the 3 means "foreground", and the `5` means "magenta".
+And in `46`, the `4` means "background", and the `6` means "cyan"
+
+```ruby
+puts "normal \e[35;46m magenta on cyan \e[39;49m normal"
+```
+
+Note that these colours will change according to your terminal theme,
+for example yours may look different than mine, because I'm using
+the theme "solarized dark", which chooses specific RGB colours
+for each of these to map to. They'll still appear "cyan", but the
+exact shade of cyan will vary.
+
+Try making a program to print the 64 foreground / background combinations.
+Here's my solution
+
+```ruby
+colours = {black: 0, red: 1, green: 2, yellow: 3, blue: 4, magenta: 5, cyan: 6, white: 7}
+width   = 12
+
+puts " "*width + colours.map { |name, index|
+  " \e[9#{index}m#{name.to_s.ljust width}\e[39m"
+}.join
+
+colours.each do |fgname, fg|
+  puts "\e[9#{fg}m#{fgname.to_s.ljust width}\e[39m " +
+       colours.map { |bgname, bg|
+        "\e[3#{fg};4#{bg}m \"\\e[3#{fg};4#{bg}m\" \e[39;49m"
+      }.join
+end
+```
+
+![Each foreground with each background](article_images/christmas-cli/each-colour-combination.png)
+
+
+Console Size
+------------
+
+When printing, you often need to know how big the console is.
+Ruby ships with code in the standard library, `io/console`,
+which defines `IO#winsize`. Call it on standard output to find
+out the size of the screen you're printing to.
+
+Here is a program that will print a line of "aaaaaa" followed by
+a line of "bbbb" and so on up to a line of "eeeee".
+
+```ruby
+require 'io/console'
+height, width = $stdout.winsize
+"a".upto("e") { |c| puts c*width }
+```
+
+![Printing just within the length of the window](article_images/christmas-cli/winsize.png)
+
+If you're not using Ruby, but you are in a \*nix environment,
+then you can run the program `$ stty size` to find out this same information.
+
+
+Absolute Cursor Placement
+-------------------------
+
+Now we know how to print any colour to the screen,
+but so far it only lets us add colour to normal line-based output.
+To really be powerful, we need to be able to place the cursor anywhere.
+
+The `H` command lets us do this. It takes 2 arguments, the coordinates to move to.
+These begin at 1 (so the origin is `1;1` instead of `0;0`),
+and it counts from top to bottom and left to right.
+
+So, lets draw a line from the top-right of the screen to the bottom-left:
+
+```ruby
+require 'io/console'
+height, width = $stdout.winsize
+iterations    = [height, width].min
+xdelta        = width.to_f  / iterations
+ydelta        = height.to_f / iterations
+
+iterations.times do |i|
+  y = (i*ydelta+1).to_i
+  x = (width-i*xdelta).to_i
+  print "\e[#{y};#{x}H#"
+  sleep 0.1
+end
+puts
+```
+
+![A line from the top-right of the screen to the bottom-left](article_images/christmas-cli/diagonal-line.png)
+
+And now lets make static by placing the cursor at a random position with a random colour:
+
+```ruby
+require 'io/console'
+height, width = $stdout.winsize
+loop do
+  random_position = "\e[#{rand height};#{rand width}H"
+  random_colour   = "\e[4#{rand 8}m"
+  print random_position + random_colour + " "
+end
+```
+
+![Static: Random colours and placements](article_images/christmas-cli/static.png)
+
+Hiding The Cursor And Clearing The Screen
+-----------------------------------------
+
+`"\e[?25l"` hides the cursor, and `"\e[?25h"` displays it.
+I generally hide the cursor immediately, and then register an `at_exit` hook
+to display it at the end of the program. It's nice in that I can do it in one
+place without having to wrap the rest of the program in an ensure block.
+Lets make a progress bar:
+
+```ruby
+require 'io/console'
+print "\e[?25l"
+at_exit { print "\e[?25h" }
+height, width = $stdout.winsize
+width.times { |x| puts "\e[1;#{x}H.\e[1;1H#{(100.0*x/(width-1)).to_i}%"; sleep 0.01 }
+```
+
+![Progress Bar](article_images/christmas-cli/progress-bar.gif)
+
+You can clear from the cursor to the end of the screen with `"\e[2J"`.
+So, we could make a program that clears the screen:
+
+```ruby
+print "\e[1;1H\e[2J"
+```
+
+In fact you'll notice this is exactly what the clear program does
+(if you don't provide the y/x values, they default to 1).
+
+```sh
+$ clear | ruby -e 'p $stdin.read'
+"\e[H\e[2J"
+```
+
+
+Basic Keyboard Input
+--------------------
+
+Okay, so we know a lot of tricks for printing.
+But if we want to make, say, a game, we'll need to be able
+to read each key as it's pressed.
+Normally, you only read lines of input, because you're in
+what's called "cooked" mode, where the terminal does some pre-processing
+for you before sending you the final line.
+
+What kinds of things does it do? When you type a character, it prints
+the character to the screen so that you can see what you typed.
+When you press backspace, it removes the last printed character.
+When you press control-c, it sends an interrupt to the program.
+Left arrow moves the cursor left (ever use a program where it instead printed
+giberish to the screen? They weren't in cooked mode)
+
+That's all well and good, but we want total control, so lets use the opposite
+of cooked mode: raw mode. There's 2 ways to do this, and I use them both,
+so we'll show them both.
+
+Once in raw mode, we can use `IO#getc` to get a single character of input.
+Note that when in raw mode, a newline doesn't go to the beginning of the screen,
+it just moves down a line. So you'll need to also print carriage return,
+`"\r"` (ascii 13) to move the cursor back to the beginning of the line.
+
+```ruby
+require 'io/console'
+
+# go into raw mode
+$stdin.raw do
+  # \r because we're in raw mode, so it doesn't infer that \n also means \r
+  print "\e[33mPress 5 keys\e[39m\r\n"
+  5.times do
+    char = $stdin.getc
+    print "#{char.inspect}\r\n"
+  end
+end
+
+# and now back in cooked mode
+puts "\e[33mNow enter a line:\e[39m"
+line = $stdin.gets
+puts line.inspect
+
+# and now back in raw mode
+$stdin.raw!
+at_exit { $stdin.cooked! } # be sure to do this or the terminal will still be in raw mode!
+print "\e[33mNow press 5 keys\e[39m\r\n"
+5.times do
+  char = $stdin.getc
+  print "#{char.inspect}\r\n"
+end
+```
+
+![Cooked vs Raw mode](article_images/christmas-cli/cooked-vs-raw.gif)
+
+
+Putting It All Together
+-----------------------
+
+Lets put it all together by making ourselves an image editor that we can use
+to make images for other programs!
+
+![Drawing Santa in a sleigh](article_images/christmas-cli/draw.gif)
+
+```ruby
+require 'io/console'
+height, width = $stdout.winsize
+
+# No cursor, input 1 char at a time
+print "\e[?25l"; at_exit { print "\e[?25h" }
+$stdin.raw!;     at_exit { $stdin.cooked! }
+
+# Load or create the new canvas
+if ARGV[0]
+  canvas = File.read(ARGV[0]).lines.map { |line| line.chomp.chars.map(&:to_i) }
+else
+  canvas = Array.new(height-1) { Array.new width-1, 0 }
+end
+
+# To save it once done (doing it this way so we have access to the canvas local var)
+define_method :save do
+  filename = ARGV[0]||'image'
+  File.write filename, canvas.map(&:join).join("\n")
+  print "\r\nSaved in #{filename.inspect}"
+end
+
+# Promt whether to save, upon exit
+at_exit do
+  print "\e[1;1HSAVE? "
+  save if $stdin.getc == 'y'
+end
+
+# Edit the canvas
+x = y = 0
+loop do
+  # Draw each square the colour specified
+  image = canvas.map { |ns| ns.map { |n| "\e[4#{n}m " }.join }.join("\e[0m\r\n")
+  print "\e[2;1H#{image}\e[#{y+2};#{x+1}H\e[4#{canvas[y][x]}m#{canvas[y][x]}"
+
+  # Depending on what they press, we'll either quit, save, move, or colour the canvas
+  char = $stdin.getc
+  case char
+  when "\x03", "q" then break
+  when 's'         then save
+  when 'h'         then x -= 1
+  when 'j'         then y += 1
+  when 'k'         then y -= 1
+  when 'l'         then x += 1
+  when /\d/        then canvas[y][x] = char.to_i
+  end
+end
+```
+
+
+From there, I made this game!
+
+![Chuck It Down The Chimney Santa](article_images/christmas-cli/chuck-it-down-the-chimney-santa.gif)
+
+Here's a bunch more examples I made, mostly at the airport while waiting for my flight:
+[https://gist.github.com/JoshCheek/ed876305b320d847e6d0](https://gist.github.com/JoshCheek/ed876305b320d847e6d0).
+
+
+Want More?
+----------
+
+**Let me know**, here's some things I omitted bout would enjoy sharing:
+
+* The 24 shade grayscale colours
+* The 6x6x6 rgb mapping
+* Drawing pictures (See Steve Kinney with `curl -L https://raw.githubusercontent.com/JoshCheek/print-png/master/steve.ascii` and see a rainbow with `curl -L https://raw.githubusercontent.com/JoshCheek/print-png/master/rainbow.ascii`)
+* Drawing animated gifs [https://github.com/JoshCheek/animated-gif-in-the-terminal](https://github.com/JoshCheek/animated-gif-in-the-terminal)
+* Bold, highlight, blinking, underlining
+* Relative positions (eg use these to make L-systems) `$ ruby -e's=?F;3.times{s.gsub!?F,"F3F1F1F3F"};puts"\e[30H\e[47m#{s.gsub(/./){$.+=$&.to_i;"\e[#{%w[2C B 2D A][$.%4]}  \e[2D"*2if$&[?F]}}\e[m"'`
+* Detecting mouse clicks
+* Multi-character input (such as arrow keys)
+* Decoupling input from your program so that you can take input as it is available (the way I did it for the christmas one is not my preference, I prefer to make another thread and let it block)
+* Control keys
+* Detecting when the window size changes
+* How to actually structure / test such a program (my examples here are not geared towards this, they're geared towards removing abstractions)
+* Some abstractions I think could be useful.
