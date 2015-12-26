@@ -371,7 +371,7 @@ Want More?
 * Drawing pictures (See Steve Kinney with `curl -L https://raw.githubusercontent.com/JoshCheek/print-png/master/steve.ascii` and see a rainbow with `curl -L https://raw.githubusercontent.com/JoshCheek/print-png/master/rainbow.ascii`)
 * Drawing animated gifs [https://github.com/JoshCheek/animated-gif-in-the-terminal](https://github.com/JoshCheek/animated-gif-in-the-terminal)
 * Bold, highlight, blinking, underlining
-* Relative positions (eg use these to make L-systems) `$ ruby -e's=?F;3.times{s.gsub!?F,"F3F1F1F3F"};puts"\e[30H\e[47m#{s.gsub(/./){$.+=$&.to_i;"\e[#{%w[2C B 2D A][$.%4]}  \e[2D"*2if$&[?F]}}\e[m"'`
+* Relative positions (eg use these to make L-systems) `$ ruby -e's=?F;3.times{s.gsub!?F,"F3F1F1F3F"};puts"\e[30H\e[47m#{s.gsub(/./){$.+=$&.to_i;"\e[#{%w[2C B 2D A][$.%4]}  \e[2D"*2if$&[?F]}}\e[m"'`
 * Detecting mouse clicks
 * Multi-character input (such as arrow keys)
 * Decoupling input from your program so that you can take input as it is available (the way I did it for the christmas one is not my preference, I prefer to make another thread and let it block)
