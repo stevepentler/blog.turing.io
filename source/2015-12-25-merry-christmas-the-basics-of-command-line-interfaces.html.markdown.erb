@@ -46,7 +46,7 @@ Here is an example:
 puts "normal \e[35;46m magenta on cyan \e[39;49m normal"
 ```
 
-![Magenta text on a cyan background](article_images/christmas-cli/magenta-on-cyan.png)
+<%= image_tag 'article_images/christmas-cli/magenta-on-cyan.png' %>
 
 
 Anatomy Of A Command:
@@ -132,7 +132,7 @@ colours.each do |fgname, fg|
 end
 ```
 
-![Each foreground with each background](article_images/christmas-cli/each-colour-combination.png)
+<%= image_tag 'article_images/christmas-cli/each-colour-combination.png' %>
 
 
 Console Size
@@ -152,7 +152,7 @@ height, width = $stdout.winsize
 "a".upto("e") { |c| puts c*width }
 ```
 
-![Printing just within the length of the window](article_images/christmas-cli/winsize.png)
+<%= image_tag 'article_images/christmas-cli/winsize.png' %>
 
 If you're not using Ruby, but you are in a \*nix environment,
 then you can run the program `$ stty size` to find out this same information.
@@ -187,7 +187,7 @@ end
 puts
 ```
 
-![A line from the top-right of the screen to the bottom-left](article_images/christmas-cli/diagonal-line.png)
+<%= image_tag 'article_images/christmas-cli/diagonal-line.png' %>
 
 And now lets make static by placing the cursor at a random position with a random colour:
 
@@ -201,7 +201,7 @@ loop do
 end
 ```
 
-![Static: Random colours and placements](article_images/christmas-cli/static.png)
+<%= image_tag 'article_images/christmas-cli/static.png' %>
 
 Hiding The Cursor And Clearing The Screen
 -----------------------------------------
@@ -220,7 +220,7 @@ height, width = $stdout.winsize
 width.times { |x| puts "\e[1;#{x}H.\e[1;1H#{(100.0*x/(width-1)).to_i}%"; sleep 0.01 }
 ```
 
-![Progress Bar](article_images/christmas-cli/progress-bar.gif)
+<%= image_tag 'article_images/christmas-cli/progress-bar.gif' %>
 
 You can clear from the cursor to the end of the screen with `"\e[2J"`.
 So, we could make a program that clears the screen:
@@ -292,7 +292,7 @@ print "\e[33mNow press 5 keys\e[39m\r\n"
 end
 ```
 
-![Cooked vs Raw mode](article_images/christmas-cli/cooked-vs-raw.gif)
+<%= image_tag 'article_images/christmas-cli/cooked-vs-raw.gif' %>
 
 
 Putting It All Together
@@ -301,7 +301,7 @@ Putting It All Together
 Lets put it all together by making ourselves an image editor that we can use
 to make images for other programs!
 
-![Drawing Santa in a sleigh](article_images/christmas-cli/draw.gif)
+<%= image_tag 'article_images/christmas-cli/draw.gif' %>
 
 ```ruby
 require 'io/console'
@@ -355,7 +355,7 @@ end
 
 From there, I made this game!
 
-![Chuck It Down The Chimney Santa](article_images/christmas-cli/chuck-it-down-the-chimney-santa.gif)
+<%= image_tag 'article_images/christmas-cli/chuck-it-down-the-chimney-santa.gif' %>
 
 Here's a bunch more examples I made, mostly at the airport while waiting for my flight:
 [https://gist.github.com/JoshCheek/ed876305b320d847e6d0](https://gist.github.com/JoshCheek/ed876305b320d847e6d0).
