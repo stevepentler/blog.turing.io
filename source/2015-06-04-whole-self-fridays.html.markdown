@@ -32,5 +32,5 @@ I'll write up observations and next steps in a few weeks.
 
 ---
 
-You can find me [on Twitter at @j3](https://twitter.com/j3). If you have thoughts on this post I'd love for you to tweet me. If you spot any typos in this article, your [pull requests are greatly appreciated](https://github.com/turingschool/blog.turing.io/blob/master/source/2015-06-04-whole-self-fridays.markdown).
+You can find me [on Twitter at @j3](https://twitter.com/j3). If you have thoughts on this post I'd love for you to tweet me. If you spot any typos in this article, your [pull requests are greatly appreciated](https://github.com/turingschool/blog.turing.io/blob/master/source/2015-06-04-whole-self-fridays.html.markdown).
 
